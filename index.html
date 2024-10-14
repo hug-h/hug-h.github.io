@@ -2,6 +2,7 @@
 <head>
     <meta charset="utf8">
     <title>hguh</title>
+    <style type="text/css" href="css/reset.css"></style>
     <style type="text/css">
     body {
         margin: 0;
@@ -14,11 +15,29 @@
         display: block;
         margin: 0 auto;
     }
+    a,p{
+        color: black;
+    }
     </style>
+    <script>
+        time = 100;
+        function animateText(){
+            int = 47 + (Math.floor(Math.random()*2)*45);
+            console.log(int);
+            String.fromCharCode()
+            tag = document.getElementById("animatedText");
+            lm = document.createElement("span");
+            lm.innerHTML= String.fromCharCode(int);
+            tag.appendChild(lm);
+        }
+        setInterval(animateText,100);
+    </script>
 </head>
 <body>
-    <p>Hugh Clery Ward</p>
+    <p id="animatedText"></p>
+    <!--<p>Hugh Clery Ward</p>
     <p>Music Media & Performance Technology Student</p>
     <p>Limerick Ireland</p>
-    <img src="images/profile.gif" width="300" height="350" >
+    <a href="work.html">Work</a>
+    <img src="images/profile.gif" width="300" height="350" >-->
 </body>

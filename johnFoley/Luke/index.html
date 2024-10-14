@@ -1,0 +1,46 @@
+<!doctype html>
+<head>
+    <meta charset="utf8">
+    <title>luke</title>
+    <style type="text/css">
+    body {
+        margin: 0;
+        padding: 0;
+        background: white;
+        background: -webkit-linear-gradient(-90deg, green, white);
+        background:         linear-gradient(to bottom, green, white);
+        background-repeat: repeat-x;
+        background-size: 100% 330px;
+    }
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+    </style>
+    <script>
+        count = 0
+        headName = "luke"; 
+        function load(name,interval){
+            headName = name;
+            setInterval(animateImage,interval);
+        }
+        
+        function animateImage(){
+            newImage(headName,count+1);
+            count = (count +1)%16;
+            console.log("image: "+headName+(count+1));
+        }
+
+        function newImage(name,image){
+            bdy = document.getElementById("imageDiv");
+            bdy.innerHTML = '';
+            img = document.createElement("img");
+            img.src = name +image+".png";
+            bdy.appendChild(img);
+        }
+    </script>
+</head>
+<body onload="load('luke',150)">
+    <!--This was an excercise to imitate Olia Lialina's "Summer"-->
+    <div id="imageDiv"></div>
+</body>
