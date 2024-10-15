@@ -19,23 +19,20 @@
     </style>
     <script>
         count = 0
-        headName = "luke"; 
+        headName = ""; 
         function load(name,interval){
             headName = name;
             setInterval(animateImage,interval);
         }
-        
         function animateImage(){
             newImage(headName,count+1);
             count = (count +1)%16;
-            console.log("image: "+headName+(count+1));
         }
-
         function newImage(name,image){
             bdy = document.getElementById("imageDiv");
             bdy.innerHTML = '';
             img = document.createElement("img");
-            img.src = name +image+".png";
+            img.src = name+'/'+name +image+".png";
             bdy.appendChild(img);
         }
     </script>

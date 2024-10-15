@@ -1,0 +1,49 @@
+<!doctype html>
+<head>
+    <meta charset="utf8">
+    <title>paddy</title>
+    <style type="text/css">
+    body {
+        margin: 0;
+        padding: 0;
+        background: purple;
+        background: -webkit-linear-gradient(-90deg, yellow, purple);
+        background:         linear-gradient(to bottom, yellow, purple);
+        background-repeat: repeat-x;
+        background-size: 100% 330px;
+    }
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+    h1,h3{
+        text-align: right;
+
+    }
+    </style>
+    <script>
+        count = 0
+        headName = ""; 
+        function load(interval){
+            headName = 'head';
+            setInterval(animateImage,interval);
+        }
+        function animateImage(){
+            newImage(headName,count+1);
+            count = (count +1)%15;
+        }
+        function newImage(name,image){
+            bdy = document.getElementById("imageDiv");
+            bdy.innerHTML = '';
+            img = document.createElement("img");
+            img.src = name +image+".png";
+            bdy.appendChild(img);
+        }
+    </script>
+</head>
+<body onload="load(150)">
+    <!--This was an excercise to imitate Olia Lialina's "Summer"-->
+    <h1>Come to Paddy and Doireann's Big 24th birthday bash this Friday Night!</h1>
+    <h2>in Charlie Malones!</h2>
+    <div id="imageDiv"></div>
+</body>
