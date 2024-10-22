@@ -18,6 +18,11 @@
     a,p{
         color: black;
     }
+    .background{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
     </style>
     <script>
         time = 100;
@@ -29,15 +34,18 @@
             lm = document.createElement("span");
             lm.innerHTML= String.fromCharCode(int);
             tag.appendChild(lm);
+            if((Math.random()*30)<1){
+                tag.innerHTML=""
+            }
         }
-        setInterval(animateText,100);
+        setInterval(animateText,300);
     </script>
 </head>
 <body>
-    <p id="animatedText"></p>
-    <!--<p>Hugh Clery Ward</p>
+    
+    <p>Hugh Clery Ward  <span id="animatedText"></span></p>
     <p>Music Media & Performance Technology Student</p>
     <p>Limerick Ireland</p>
-    <a href="work.html">Work</a>
-    <img src="images/profile.gif" width="300" height="350" >-->
+    <!--a href="work.html">Work</a-->
+    <img src="images/profile.gif" width="300" height="350" >
 </body>
