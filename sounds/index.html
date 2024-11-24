@@ -1,56 +1,84 @@
 <!doctype html>
+
 <head>
     <meta charset="utf8">
     <title>Journal</title>
     <style type="text/css" href="css/reset.css"></style>
     <style type="text/css">
-    body {
-        margin: 0;
-        padding: 1%;
-        background: white;
-        background-repeat: repeat-x;
-        background-size: 100% 330px;
-    }
-    img {
-        display: block;
-        margin: 0 auto;
-    }
-    a,p{
-        color: black;
-    }
-    .background{
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+        body {
+            margin: 0;
+            padding: 1%;
+            background: white;
+            background-repeat: repeat-x;
+            background-size: 100% 330px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        a,
+        p {
+            color: black;
+        }
+
+        table {
+            text-align: right;
+        }
+
+        .header {
+            position: fixed;
+            width: 100%;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .scroll {
+            height: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+            padding-top: 50px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+        }
     </style>
+    <script src="sounds.js"></script>
+
+
 </head>
-<body>
-    <b>Journal</b>
-    <p>a place to put sounds</p>
-    <hr>
-    <table style="min-width: 50%;">
-        <tr >
-            <td>date</td>
-            <td>description</td>
-            <td>
-                <audio controls>
-                    <source src="https://raw.githubusercontent.com/hug-h/sounds/main/journal/17.11.24.mp3" type="audio/mp3">
-                </audio>
-                </td>
-        </tr>
-        <tr >
-            <td>date</td>
-            <td>description</td>
-            <td>
-                <audio controls>
-                    <source src="https://raw.githubusercontent.com/yaxu/clean-breaks/main/sounds/Mark_Putney_-_Don't_Come_Around_Here_Anymore [2019-03-04 124552].wav" type="audio/mp3">
-                </audio>
-                </td>
-        </tr>
-    
-    <!--sounds/Mark_Putney_-_Don't_Come_Around_Here_Anymore [2019-03-04 124552].wav-->
-    </table>
+
+
+
+<body onload="load()">
+    <div class="header">
+        <b>Journal</b>
+        <p>a place to put sounds</p>
+        <hr>
+    </div>
+    <div>
+        <div>
+            <table style="min-width: 50%;position: fixed;margin-top: 10%;" id="mainTable">
+                <!--<tr>
+                    <td>date</td>
+                    <td>description</td>
+                    <td>
+                        <audio controls>
+                            <source src="https://raw.githubusercontent.com/hug-h/sounds/main/journal/17.11.24.mp3"
+                                type="audio/mp3">
+                        </audio>
+                    </td>
+                </tr>-->
+
+                <!--sounds/Mark_Putney_-_Don't_Come_Around_Here_Anymore [2019-03-04 124552].wav-->
+            </table>
+        </div>
+    </div>
 
 
 </body>
