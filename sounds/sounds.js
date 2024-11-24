@@ -18,15 +18,23 @@ function fillTable() {
 
 
 const data = {
-    "entries": [{
-        "date": "13.09.24",
-        "text": "bottle cork opening at mentana",
-        "file": "13.09.24.mp3"
-    }, {
+    "entries": [{/*
+        "date": "date",
+        "text": "description",
+        "file": "fileName.mp3"
+    },{*/
+        "date": "date",
+        "text": "description",
+        "file": "fileName.mp3"
+    },{
         "date": "17.11.24",
         "text": "chanel beads scream at bellobar",
         "file": "17.11.24.mp3"
-    },
+    },{
+        "date": "13.09.24",
+        "text": "bottle cork opening at mentana",
+        "file": "13.09.24.mp3"
+    }
 
 
 
