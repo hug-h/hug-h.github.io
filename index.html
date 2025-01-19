@@ -31,11 +31,12 @@
         top: 0;
         left: 0;
     }
+    /*
     @media screen and (min-width: 1200px) {
         table{
         width: 80%;
     }    
-    }
+    }*/
     td > a > img {
         min-width: 200px;
         max-width: 100%;
@@ -72,14 +73,14 @@
             bioDiv = document.getElementById("bioDiv");
             bio = document.getElementById("bio");
             if(workVis){
-                workDiv.style.display = 'block';
-                wrk.classList.add('bold');
                 bioDiv.style.display = 'none';
+                workDiv.style.display = 'block';
                 bio.classList.remove('bold');
+                wrk.classList.add('bold');
             }else{
                 workDiv.style.display = 'none';
-                wrk.classList.remove('bold');
                 bioDiv.style.display = 'block';
+                wrk.classList.remove('bold');
                 bio.classList.add('bold');
             }
 
