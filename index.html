@@ -15,20 +15,42 @@
         display: block;
         margin: 0 auto;
     }
-    a,p{
+    p{
         color: black;
+    }
+    a{
+        color:grey;
+    }
+    .bold{
+        font-weight: bold;
     }
     .background{
         position: absolute;
         top: 0;
         left: 0;
     }
+    table{
+        width: 80%;
+    }
+    td > a > img {
+        min-width: 150px;
+        max-width: 100%;
+        width: 75%;
+        height: auto;   
+    }
+    td{
+        text-align: left;
+        vertical-align: top;
+        padding-right: 3%;
+    }
     </style>
     <script>
         time = 100;
+        workVis = 0;
+       
         function animateText(){
             int = 47 + (Math.floor(Math.random()*2)*45);
-            console.log(int);
+            //console.log(int);
             String.fromCharCode()
             tag = document.getElementById("animatedText");
             lm = document.createElement("span");
@@ -37,6 +59,26 @@
             if((Math.random()*30)<1){
                 tag.innerHTML=""
             }
+        }
+
+        function toggleWork(){
+            workVis = !workVis;
+            workDiv= document.getElementById("workDiv");
+            wrk = document.getElementById("wrk");
+            bioDiv = document.getElementById("bioDiv");
+            bio = document.getElementById("bio");
+            if(workVis){
+                workDiv.style.display = 'block';
+                wrk.classList.add('bold');
+                bioDiv.style.display = 'none';
+                bio.classList.remove('bold');
+            }else{
+                workDiv.style.display = 'none';
+                wrk.classList.remove('bold');
+                bioDiv.style.display = 'block';
+                bio.classList.add('bold');
+            }
+
         }
         setInterval(animateText,300);
     </script>
@@ -47,5 +89,41 @@
     <p>Music Media & Performance Technology Student</p>
     <p>Limerick Ireland</p>
     <!--a href="work.html">Work</a-->
-    <img src="images/profile.gif" width="300" height="350" >
+    <p onclick="toggleWork()">
+        <span id="wrk">Work </span>
+        <span> // </span>
+        <span id="bio" class="bold"> Bio</span>
+    </p>
+    <div id="bioDiv" style="display: flex;">
+        <p style="padding-left: 10%;width: 15%;">
+            Hugh is a Musician and Technologist from Limerick City, working with code, sound, and visual mediums, and currently in the final year of a Bachelor's Degree in Music Media and Performance Technology at the University of Limerick.
+            <br><br>Coming from a background as a percussionist and street performer, he focuses on digital processes, working primarily with Max MSP to create tools, patches and improvisations rooted in the post-digital aesthetic. 
+            Aside from his solo practice, Hugh plays with a number of bands and groups in Limerick City, currently: <a href="https://www.instagram.com/martiansubculture/">Martian Subculture</a> and <a href="https://www.instagram.com/prizedband/">John Foley's Prize Band</a>
+        </p>
+        <img src="images/profile.gif" width="300" height="350" style="padding-right: 10%;" >
+    </div>
+    <div id="workDiv" style="display: none;">
+        <table>
+            <tr>
+                <td>Monplaisir Rd2DOOM music Video</td>
+                <td>Video/2024</td>
+                <td>Hyperlapse video exploring a simple chair imposed upon various urban landscapes<br>Featuring flash photography and low resolution 3D scans</td>
+                <td><a href="https://youtu.be/FXSZvOprM5M"><img src="images/chair.gif"></a></td>
+            </tr>
+            <tr>
+                <td>Music On Tap March24</td>
+                <td>MaxMSP Performance/2024</td>
+                <td>Improvised performance focusing on non western tonalities noise feedback systems and generative algorithms created in MaxMSP's <i>gen~</i> environment</td>
+                <td><a href="https://youtu.be/4QboyjxhIT4"><img src="images/musicOnTap.gif"></a></td>
+            </tr>
+            <tr>
+                <td>Livecoding the 250e:<br>A textual interpretation of Buchla's 250e sequencer</td>
+                <td>Undergraduate Final Year Project/Ongoing</td>
+                <td>
+                    Software project centered around a pesonal performance practiced which explores the development of a textual control interface and the transplanting of the 250e's conceptual metaphors into a LiveCoding context.
+                    <br>Project being carried out in the fulfillment of a Bachellors degree in Music Media and Performance Technology in the University of Limerick</td>
+                <td><a href=""><img src="images/250gen.gif"></a></td>
+            </tr>
+        </table>
+    </div>
 </body>
