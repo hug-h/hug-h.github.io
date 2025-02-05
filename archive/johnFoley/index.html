@@ -15,6 +15,9 @@
     img {
         display: flexbox;
         margin: 0 auto;
+        padding-top: 10%;
+        width: 50%;
+        height: auto;
     }
     main{
         display: flex;
@@ -39,7 +42,7 @@
             for(i=0;i<3;i++){
                 document.getElementById("container").innerHTML="";
             }
-            x = Math.floor(Math.random()*4)+1;
+            x = 4;//Math.floor(Math.random()*4)+1;
             createGifs(x);
         }
 
