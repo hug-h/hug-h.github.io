@@ -1,12 +1,31 @@
 //sounds.js
 audioContextStatus = false;
-let multiPlayer
+
+
+function playSound(snd) {
+    if (!audioContextStatus) {
+        audioContextStatus = true;
+        Tone.start();
+        console.log("audio is ready");
+    }
+    sample = data.entries[snd].file;
+    play(sample);
+}
+
+function play(source) {
+    const player = new Tone.Player(
+        `https://raw.githubusercontent.com/hug-h/sounds/main/journal/${source}`
+    ).toDestination();
+    Tone.loaded().then(() => {
+        player.start();
+    });
+}
 
 
 
 function load() {
     //fillTable();
-    
+    loadPlayers();
 }
 
 function fillTable() {
@@ -29,32 +48,6 @@ function loadPlayers() {
         ).toDestination();
     }
 }
-
-new 
-
-
-function playerSetup(){
-    multiPlayer = newTone.Players({
-        A1 :
-    })
-
-
-
-
-    const player = new Tone.Player("https://tonejs.github.io/audio/berklee/gong_1.mp3").toDestination();
-    // play as soon as the buffer is loaded
-    player.autostart = true;
-
-
-
-}
-
-
-
-
-
-
-
 
 
 

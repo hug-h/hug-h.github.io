@@ -1,34 +1,86 @@
 <!doctype html>
+
 <head>
     <meta charset="utf8">
     <title>hguh</title>
-    <style type="text/css" href="reset.css;" ></style>
-    <style type="text/css" href="stylesheet.css">
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+    <script src="headerAnim.js"></script>
 </head>
 <body>
-    <a class="title" href="index.html">Hugh Clery Ward</a>
-    <p>Work</p>
-    <hr>
-    <table>
-        <tr>
-            <td>
-                <a class="workTitle">Monplaisir <i>R2DOOM</i> music video</a>
-                <p>2024</p>
-            </td>
-            <td>
-                <img src="images/chair.gif" width="300" height="auto" ></tr>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a class="workTitle">Monplaisir <i>R2DOOM</i> music video</a>
-                <p>2024</p>
-            </td>
-            <td>
-                <img src="images/chair.gif" width="300" height="auto" ></tr>
-            </td>
-        </tr>
-    </table>
+     <header style="max-width: 1700px;">
+        <section>
+            <p style="flex: 1;">Hugh Clery Ward <span id="animatedText"></span></p>
+            <p>Music Media & Performance Technology Student</p>        
+        </section>
+        <section>
+            <div style="flex: 1;">
+            <table class="selector">
+                <tr>
+                    <td id="bio" style="text-align: left;"> <a href="index.html">Bio</a> </td>
+                    <td id="selectorSeparator" style="text-align: center;"> // </td>
+                    <td id="wrk" class="bold" style="text-align: right;"><a href="work.html">Work</a></td>
+                </tr>
+            </table>
+            </div>
+            <p style="text-align: right;">Limerick, Ireland</p>
+        </section>
+        </header>
     
+
+     <div id="workDiv">
+            <section style="justify-content: center;">
+                <div class="c1">    
+                    <p>Monplaisir Rd2DOOM music Video</p>
+                    <div class="th2">
+                        <p>Video</p>
+                        <p>/2024</p>
+                    </div>
+                </div>
+                <div class="c2">
+                    <p>Hyperlapse video exploring a simple chair imposed upon various urban landscapes<br>Featuring
+                    flash photography and low resolution 3D scans</p>
+                </div>
+                <div class="c3">
+                    <a href="https://youtu.be/FXSZvOprM5M"><img class="tableImg" src="images/chair.gif"></a>
+                </div>
+            </section>
+            <section>
+                <div class="c1">
+                    <p>Music On Tap March24</p>
+                    <div class="th2">
+                        <p >MaxMSP Performance</p>
+                        <p >/2024</p>
+                    </div>
+                </div>
+                <div class="c2">
+                    <p>Improvised performance from March 2024, focusing on non western tonalities, generative
+                    algorithms, and noise feedback systems created in MaxMSP's <i>gen~</i> environment</p>
+                </div>
+                <div class="c3">
+                    <a href="https://youtu.be/4QboyjxhIT4"><img class="tableImg" src="images/musicOnTap.gif"></a>
+                </div>
+            </section>
+            <section>
+                <div class="c1">
+                    <p>Livecoding the 250e:<br>A textual interpretation of Buchla's 250e sequencer</p>
+                    <div class="th2">
+                        <p >Undergraduate Final Year Project</p>
+                        <p >2024/25</p>
+                    </div>
+                </div>
+                
+                <div class="c2">
+                    <p>Software project centered around a pesonal performance practiced which explores the development
+                    of a textual control interface and the transplanting of the 250e's conceptual metaphors into a
+                    LiveCoding context.
+                    <br>Project being carried out in the fulfillment of a Bachellor's degree in Music Media and
+                    Performance Technology at the University of Limerick</p>
+                </div>
+                <div class="c3">
+                    <a href=""><img class="tableImg" src="images/250gen.gif"></a>
+                </div>
+            </section>
+        
+    </div>
+
 </body>

@@ -1,24 +1,134 @@
-    body {
-        margin: 0;
-        padding: 1%;
-        background: white;
-    }
-    img {
-        display: block;
-        margin: 0 auto;
-    }
-    a,p,.title{
-        color: black;
-    }
-    table{
-        width: 40%;
-    }
+body {
+    margin-top: 16px;
+    margin-left: 0%;
+    margin-right: 0%;
+    padding: 1%;
+    padding-top: 0%;
+    background: white;
+    font-size: medium;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+p {
+    color: black;
+    min-width: 220px;
+    margin: 0%;
+}
+
+
+a {
+    color: grey;
+}
+
+.bold {
+    font-size: medium;
+    font-weight: bold;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+section {
+    /*flexbox stuff*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+header>section {
+    height: 2em;
+}
+
+
+.selector {/*css for table selector in header */
+    width: 20%;
+    max-width: 120px;
+    border-spacing: 0px;
     td{
+        width: 40px;
+        >a{
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+}
+
+
+.th2 {
+    text-align: right;
+    padding-top: 5vw;
+    >p{
+        text-align: right;
+    }
+}
+
+#workDiv {
+    
+    p {
+        text-align: inherit;
         vertical-align: top;
+        padding-right: 3%;
     }
-    tr{
-        margin-bottom: 3%;
+    section{
+        padding-top: 1vh;
+
+        :hover{
+            filter: blur(0px);
+        }
     }
-    .workTitle{
-        padding: 0%;
+    .c1{
+        flex: 1 220;
     }
+    .c2{
+        flex: 3 220;
+        text-align: right;
+        padding-right: 10vw;
+    }
+    .c3 {
+        flex: 3 220;
+    }
+} 
+
+
+
+.tableImg {  /*table image sizing*/
+    min-width: 380px;
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+}
+
+@media only screen and (max-width: 1200px){
+    .tableImg{
+        max-width: 1000px;
+        width: 100%;
+    }
+}
+
+
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
+}
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
