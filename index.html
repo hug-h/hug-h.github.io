@@ -4,38 +4,7 @@
     <meta charset="utf8">
     <title>hguh</title>
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-    <script src="headerAnim.js"></script>
-    <script>
-        let moveCounter = 0;
-        function load(){
-            moveStuff(1);
-            loadGl();
-        }
-
-        function loadGl(){ // loops x times and then stops
-            if(moveCounter==0){
-                loadGlitch = setInterval(loadGl,80);
-            }else if (moveCounter>3){
-                clearInterval(loadGlitch);
-            }
-            moveStuff(0);
-            moveCounter +=1;
-        }
-
-        function moveStuff(changeOrder){
-            if(changeOrder){ // change the order of the elements on the homepage
-                num = -1*Math.floor(Math.random()*2);
-                console.log(num);
-                document.getElementById("bioImg").style.order = num;
-            }
-            
-            let stuff = ["bioImg","bioText"]
-            stuff.forEach((id)=> { // change the paddingTop of an element
-                var int = Math.floor(Math.random()*30);
-                document.getElementById(id).style.paddingTop = int+"%";
-            })            
-        }
-    </script>
+    <script src="animations.js"></script>
 </head>
 
 <body onload="load()">
@@ -48,9 +17,9 @@
         <div style="flex: 1;">
         <table class="selector">
             <tr>
-                <td id="wrk" style="text-align: left;"><a href="work.html">Work</a></td>
-                <td id="selectorSeparator" style="text-align: center;"> // </td>
-                <td id="bio" class="bold" style="text-align: right;" onmouseenter="loadGl()"> <a href="index.html">Bio</a> </td>
+                <td id="bio" class="bold" onmouseenter="loadGl()"> <a href="index.html">Bio</a> </td>
+                <td id="selectorSeparator" > // </td>
+                <td id="wrk" ><a href="work.html">Work</a></td>
             </tr>
         </table>
         </div>
@@ -60,8 +29,8 @@
 
     <main>
         <br><br>
-        <section style="justify-content: center;">
-            <div style="width: 15% ; margin-right: 5%; min-width: 250px;" id="bioText"> <!--maybe add a media screen rule to this so it gets wider when the page is very narrow-->
+        <section style="justify-content: center;" id="mainContent">
+            <div style="width: 15% ; margin-right: 5%;" class="text"> <!--maybe add a media screen rule to this so it gets wider when the page is very narrow-->
                 <p>
                     Hugh is a Musician and Technologist from Limerick City, working with code, sound, and visual mediums,
                     and currently in the final year of a Bachelor's Degree in Music Media and Performance Technology at the
@@ -74,7 +43,7 @@
                     <a href="https://www.instagram.com/prizedband/">John Foley, The Prize Band</a>
                 </p>
             </div>
-            <div style="margin-right: 25%;margin-left: 0%; order: -0;" id="bioImg">
+            <div style="margin-right: 25%;margin-left: 0%; order: -0;" class="img">
                     <img src="images/profile.gif" width="300" >               
             </div>
         </section>

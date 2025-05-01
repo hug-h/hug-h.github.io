@@ -5,7 +5,7 @@ body {
     padding: 1%;
     padding-top: 0%;
     background: white;
-    font-size: medium;
+    font-size: 1rem;
 }
 
 img {
@@ -25,7 +25,7 @@ a {
 }
 
 .bold {
-    font-size: medium;
+    font-size: inherit;
     font-weight: bold;
 }
 
@@ -45,13 +45,12 @@ section {
 }
 
 header>section {
-    height: 2em;
+    height: auto;
+    padding-bottom: .5vh;
 }
 
 
 .selector {/*css for table selector in header */
-    width: 20%;
-    max-width: 120px;
     border-spacing: 0px;
     td{
         width: 40px;
@@ -60,12 +59,26 @@ header>section {
             color: inherit;
         }
     }
+    .label{
+        width: 100px;
+    }
+    td:nth-of-type(1){ /*probably wouldve been easier to not use a table and justify or something*/
+        text-align: left;
+    }
+    :nth-of-type(2){
+        text-align: center;
+    }
+    :nth-of-type(3){
+        text-align: right;
+    }
+     
 }
 
 
 .th2 {
     text-align: right;
     padding-top: 5vw;
+    justify-content: end;
     >p{
         text-align: right;
     }
@@ -92,6 +105,7 @@ header>section {
         flex: 3 220;
         text-align: right;
         padding-right: 10vw;
+        min-width: 300px;
     }
     .c3 {
         flex: 3 220;
@@ -107,11 +121,19 @@ header>section {
     height: auto;
 }
 
-@media only screen and (max-width: 1200px){
+.text{
+    min-width: 250px;
+}
+
+@media only screen and (max-width: 900px){
     .tableImg{
         max-width: 1000px;
         width: 100%;
     }
+    body{
+        font-size: 2rem;
+    }
+    .text{min-width: 500px;}
 }
 
 

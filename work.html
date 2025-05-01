@@ -4,8 +4,10 @@
     <meta charset="utf8">
     <title>hguh</title>
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-    <script src="headerAnim.js"></script>
+    <script src="animations.js"></script>
+    <script src="nav.js"></script>
 </head>
+
 <body>
      <header style="max-width: 1700px;">
         <section>
@@ -16,9 +18,9 @@
             <div style="flex: 1;">
             <table class="selector">
                 <tr>
-                    <td id="bio" style="text-align: left;"> <a href="index.html">Bio</a> </td>
-                    <td id="selectorSeparator" style="text-align: center;"> // </td>
-                    <td id="wrk" class="bold" style="text-align: right;"><a href="work.html">Work</a></td>
+                    <td id="bio"> <a href="index.html">Bio</a> </td>
+                    <td id="selectorSeparator"> // </td>
+                    <td id="wrk" class="bold" ><a href="work.html">Work</a></td>
                 </tr>
             </table>
             </div>
@@ -28,9 +30,10 @@
     
 
      <div id="workDiv">
-            <section style="justify-content: center;">
+            
+        <section class="project" onclick="loadPage(0)">
                 <div class="c1">    
-                    <p>Monplaisir Rd2DOOM music Video</p>
+                    <p>Monplaisir Rd2DOOM music video</p>
                     <div class="th2">
                         <p>Video</p>
                         <p>/2024</p>
@@ -43,8 +46,9 @@
                 <div class="c3">
                     <a href="https://youtu.be/FXSZvOprM5M"><img class="tableImg" src="images/chair.gif"></a>
                 </div>
+            
             </section>
-            <section>
+            <section class="project" onclick="loadPage(1)">
                 <div class="c1">
                     <p>Music On Tap March24</p>
                     <div class="th2">
@@ -60,7 +64,7 @@
                     <a href="https://youtu.be/4QboyjxhIT4"><img class="tableImg" src="images/musicOnTap.gif"></a>
                 </div>
             </section>
-            <section>
+            <section class="project" onclick="loadPage(2)">
                 <div class="c1">
                     <p>Livecoding the 250e:<br>A textual interpretation of Buchla's 250e sequencer</p>
                     <div class="th2">
