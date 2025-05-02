@@ -1,8 +1,8 @@
 body {
-    margin-top: 16px;
+    margin-top: 4px;
     margin-left: 0%;
     margin-right: 0%;
-    padding: 1%;
+    padding: 4px;
     padding-top: 0%;
     background: white;
     font-size: 1rem;
@@ -22,6 +22,12 @@ p {
 
 a {
     color: grey;
+}
+
+hr{
+    height: 1px;
+    background-color: black;
+    border:none
 }
 
 .bold {
@@ -103,8 +109,10 @@ header>section {
     }
     .c2{
         flex: 3 220;
+        align-self:flex-end;
         text-align: right;
         padding-right: 10vw;
+        padding-left: 8vw;
         min-width: 300px;
     }
     .c3 {
@@ -125,17 +133,30 @@ header>section {
     min-width: 250px;
 }
 
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 1080px){
     .tableImg{
         max-width: 1000px;
         width: 100%;
     }
     body{
-        font-size: 2rem;
+        font-size: 1.1rem;
     }
-    .text{min-width: 500px;}
-}
+    .text{min-width: 320px;}
+    
+    .c2{
+        padding-right: 0 !important;
+    }
 
+    .ytVid{        
+        margin-left: 0!important;
+        margin-right: 0!important;
+        iframe{
+            zoom: 60%;
+            
+        }
+    }
+    
+}
 
 
 html {
