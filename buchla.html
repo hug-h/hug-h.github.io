@@ -10,24 +10,28 @@
 </head>
 
 <body onload="load(); extension();">
-   <header style="max-width: 1700px;">
-    <section>
-        <p style="flex: 1;">Hugh Clery Ward <span id="animatedText"></span></p>
-        <p>Music Media & Performance Technology Student</p>        
-    </section>
-    <section>
-        <div style="flex: 1;">
-        <table class="selector">
-            <tr>
-                <td id="bio"> <a href="index.html">Bio</a> </td>
-                <td id="selectorSeparator" > // </td>
-                <td id="wrk" onmouseenter="loadGl()"><a href="work.html">Work</a></td>
-            </tr>
-        </table>
-        </div>
-        <p style="text-align: right;">Limerick, Ireland</p>
-    </section>
-    </header>
+    <header style="max-width: 1700px;">
+        <section>
+            <p style="flex: 1;">Hugh Clery Ward <span id="animatedText"></span></p>
+            <div class="rhHeader">
+                <p>Music Media & Performance Technology Student</p>        
+            </div>
+        </section>
+        <section>
+            <div style="flex: 1;">
+            <table class="selector">
+                <tr>
+                    <td id="bio"> <a href="index.html">Bio</a> </td>
+                    <td id="selectorSeparator" > // </td>
+                    <td id="wrk" onmouseenter="loadGl()"><a href="work.html">Work</a></td>
+                </tr>
+            </table>
+            </div>
+            <div class="rhHeader">
+                <p style="text-align: right;">Limerick, Ireland</p>
+            </div>
+        </section>
+        </header>
 
     <main>
         <br><br>
@@ -42,26 +46,34 @@
 
                 </p>
             </div>
-            <div style="margin-right: 15%;margin-left: 0%;" class="ytVid">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/65CkfVHoEfo?si=lIUDrILJ-fwCvZJQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div style="margin-right: 15%;margin-left: 0%; display: none;" class="ytVid">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/65CkfVHoEfo?si=lIUDrILJ-fwCvZJQ" loading="lazy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-            <div style="margin-right: 10%;margin-left: 0%;" class="img">
-                <img src="images/buchla1.gif" width="300" >               
+            <div style="margin-right: 10%;margin-left: 0%;" class="img" onclick="popImg(1);">
+                <img src="images/buchla1.gif">   
+                <div popover id="img1">
+                    <img src="images/buchla1.gif">
+                </div>            
             </div>
             <div style="width: 15% ; margin-right: 5%;" class="text">
                 <p>
-                    Music: <a href="https://chezmonplaisir.bandcamp.com/track/rd2doom">RD2DOOM</a> by Monplaisir<br>
-                    Shot using android phone camera & Nikon SB20 flash<br>
+                    This work focused on providing a new interface for the functions of the 250e, taking inspiration from Live-Coding approaches and allowing for the development of new abstractions over device functionality, as well as an expanded featureset with some experimental functions
+                    <br><br>
+                    A Max for Live version of the resulting device will be available soon.
                 </p>
             </div>
-            <div style="margin-right: 10%;margin-left: 0%;" class="img">
-                <img src="images/chair3.gif" width="300" >               
+            <div style="margin-right: 10%;margin-left: 0%;" class="img" onclick="popImg(2);">
+                <img src="images/b250.gif">      
+                <div popover id="img2">
+                    <img src="images/b250.gif">
+                </div>         
             </div>
-            <div style="margin-right: 15%;margin-left: 0%;" class="img">
-                <img src="images/chair.gif" width="300" >       
+            <div style="margin-right: 10%;margin-left: 0%;" class="img" onclick="popImg(3);">
+                <img src="images/250gen.gif">
+                <div popover id="img3">
+                    <img src="images/250gen.gif">
+                </div>         
             </div>
-
-
         </section>
     </main>
 </body>

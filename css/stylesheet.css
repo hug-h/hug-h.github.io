@@ -83,7 +83,8 @@ header>section {
 
 .th2 {
     text-align: right;
-    padding-top: 5vw;
+    padding-top: 3vw;
+    padding-left: 1vw;
     justify-content: end;
     >p{
         text-align: right;
@@ -122,11 +123,24 @@ header>section {
 
 
 
-.tableImg {  /*table image sizing*/
-    min-width: 380px;
-    max-width: 400px;
+.tableImg { /*table image sizing // not actually used in a table but it looks like one*/
+    min-width: 320px;
+    max-width: 320px;
     width: 100%;
     height: auto;
+}
+
+.img{
+    >img{    /*for images in the portfolio page*/
+        width: 300px;  
+    }
+}
+
+.popImg{    /*for images in popovers */
+    height: 95%;
+    width: auto;
+    max-width: 95%;
+    max-height: 95%;
 }
 
 .text{
@@ -139,7 +153,7 @@ header>section {
         width: 100%;
     }
     body{
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     .text{min-width: 320px;}
     
@@ -158,6 +172,26 @@ header>section {
     
 }
 
+.rhHeader{
+    display: none; /*text on the rh side of header, not in use*/
+}
+
+
+:popover-open{
+    border: none;
+    width: 95%;
+    height: fit-content;
+    max-height: 95%;
+    background-color: rgba(0,0,0,0);
+}
+
+::backdrop{
+    backdrop-filter:blur(1px);
+}
+
+
+
+    
 
 html {
     overflow: scroll;

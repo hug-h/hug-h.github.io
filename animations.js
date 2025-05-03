@@ -10,9 +10,10 @@ function animateText() {
     lm = document.createElement("span");
     lm.innerHTML = String.fromCharCode(int);
     tag.appendChild(lm);
-    if ((Math.random() * 20) < 1 || tag.childElementCount > 12) {
+    if ((Math.random() * 20) < 1 || tag.childElementCount > 18) {
         tag.innerHTML = ""
     }
+    lm.style.filter = "blur("+tag.childElementCount/18+"px)";
 }
 
 function animateSeparator() {
@@ -43,9 +44,10 @@ function load() {
 
 function loadGl() { // loops x times and then stops
     if (moveCounter == 0) {
-        loadGlitch = setInterval(loadGl, 80);
+        loadGlitch = setInterval(loadGl, 60); // set the rate here
     } else if (moveCounter > 3) {
         clearInterval(loadGlitch);
+        showVideo();
     }
     moveStuff(0);
     moveCounter += 1;
@@ -61,7 +63,6 @@ function moveStuff(changeOrder) {
             console.log(target);
             eArray[target].style.order = num;
         }
-        
     }
     eArray.forEach((id) => { // change the paddingTop of an element
         var int = Math.floor(Math.random() * 25);
@@ -69,7 +70,24 @@ function moveStuff(changeOrder) {
     })
 }
 
+function showVideo(){
+    elements = document.getElementsByClassName("ytVid"); //shows the video elements when called, used for faster loads
+    elements = [...elements];
+    if(elements){
+        elements.forEach(function show(elem){
+            elem.style.display = "block"
+        })
+    }
+}
+
+
+
+
+
+
+
 //-------------------------------------------------
+//function to add the name of a project onto the page
 
 
 function extension(){
@@ -82,9 +100,15 @@ function extension(){
     loc =document.createElement("td");
     loc.classList.add("label");
     loc.classList.add("bold");
-    loc.innerHTML="//"+page;
-    dest.appendChild(loc);
+    loc.innerHTML="- - > "+page;
+    dest.appendChild(loc);   
 
-    
+}
 
+
+//-------------------------------------------------
+//display popover image
+
+function popImg(image){
+    document.getElementById("img"+image).togglePopover();
 }
