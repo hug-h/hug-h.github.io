@@ -3,6 +3,7 @@
 time = 100;
 workVis = 0;
 
+
 function animateText() {
     int = 47 + (Math.floor(Math.random() * 2) * 45);
     String.fromCharCode()
@@ -17,18 +18,21 @@ function animateText() {
 }
 
 function animateSeparator() {
-    tag = document.getElementById("selectorSeparator");
-    stuff = document.createElement("span");
-    stuff.innerHTML = "";
-    for (i = 0; i < 2; i++) {
-        lm = document.createElement("span");
-        int = 47 + (Math.floor(Math.random() * 2) * 45);
-        lm.innerHTML = (String.fromCharCode(int));
-        stuff.appendChild(lm);
-    }
-    tag.innerHTML = "";
-    tag.appendChild(stuff);
+    tags = [...document.getElementsByClassName("animSeparator")];
+    tags.forEach((tag)=>{
+        stuff = document.createElement("span");
+        stuff.innerHTML = "";
+        for (i = 0; i < 2; i++) {
+            lm = document.createElement("span");
+            int = 47 + (Math.floor(Math.random() * 2) * 45);
+            lm.innerHTML = (String.fromCharCode(int));
+            stuff.appendChild(lm);
+        }
+        tag.innerHTML = "";
+        tag.appendChild(stuff);
+    })
 }
+
 setInterval(animateText, 300);
 setInterval(animateSeparator, 310);
 
@@ -48,6 +52,7 @@ function loadGl() { // loops x times and then stops
     } else if (moveCounter > 3) {
         clearInterval(loadGlitch);
         showVideo();
+        showFooter();
     }
     moveStuff(0);
     moveCounter += 1;
@@ -60,13 +65,12 @@ function moveStuff(changeOrder) {
         for(i=0;i<(elements.length/2);i++){
             num = -1 * Math.floor(Math.random() * elements.length);
             target =  2*i
-            console.log(target);
             eArray[target].style.order = num;
         }
     }
     eArray.forEach((id) => { // change the paddingTop of an element
-        var int = Math.floor(Math.random() * 25);
-        id.style.paddingTop = int + "vh";
+        var int = Math.floor(Math.random() * 24);
+        id.style.paddingTop = 1+int + "vh";
     })
 }
 
@@ -76,6 +80,17 @@ function showVideo(){
     if(elements){
         elements.forEach(function show(elem){
             elem.style.display = "block"
+        })
+    }
+}
+
+function showFooter(){
+    elements = document.getElementsByTagName("footer");; //shows the footer element when called, elements should only ever be one element but need to be an array 
+    elements = [...elements];
+    if(elements){
+        elements.forEach(function show(elem){
+            elem.classList.add("show");
+            elem.children[0].style.paddingLeft = Math.floor(Math.random() * 68)+"vw";
         })
     }
 }
@@ -111,4 +126,26 @@ function extension(){
 
 function popImg(image){
     document.getElementById("img"+image).togglePopover();
+}
+
+
+
+
+
+
+//--------------------------------------------------
+// nav 
+
+
+const pages = ["chair.html","slopMachine.html","buchla.html","mot.html"];
+
+
+function loadPage(page){
+    console.log(page);
+    if(page!="R"){
+        window.location.href= pages[page];
+    }else{
+        randNum = Math.floor(Math.random()*pages.length);
+        window.location.href= pages[randNum];
+    }
 }

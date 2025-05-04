@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap');
+
+h1, h2{
+    font-family: "Shippori Antique B1", sans-serif ;
+    margin: 0.1vh;
+}
+
 body {
     margin-top: 4px;
     margin-left: 0%;
@@ -5,7 +12,9 @@ body {
     padding: 4px;
     padding-top: 0%;
     background: white;
+    color: black;
     font-size: 1rem;
+    min-height: 100vh;
 }
 
 img {
@@ -14,7 +23,7 @@ img {
 }
 
 p {
-    color: black;
+    color: inherit;
     min-width: 220px;
     margin: 0%;
 }
@@ -22,6 +31,12 @@ p {
 
 a {
     color: grey;
+    transition: .3s ease-in-out;
+    text-decoration: none;
+}
+a:hover{
+    filter: blur(1px);
+    color: blue;
 }
 
 hr{
@@ -47,7 +62,6 @@ section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
 }
 
 header>section {
@@ -66,18 +80,17 @@ header>section {
         }
     }
     .label{
-        width: 100px;
+        width: 200px;
     }
     td:nth-of-type(1){ /*probably wouldve been easier to not use a table and justify or something*/
         text-align: left;
     }
-    :nth-of-type(2){
+    td:nth-of-type(2){
         text-align: center;
     }
-    :nth-of-type(3){
+    td:nth-of-type(3){
         text-align: right;
-    }
-     
+    }  
 }
 
 .th2 {
@@ -90,8 +103,7 @@ header>section {
     }
 }
 
-#workDiv {
-    
+#workDiv { /*columns structuring for the work page*/
     p {
         text-align: inherit;
         vertical-align: top;
@@ -110,10 +122,15 @@ header>section {
     .c2{
         flex: 3 220;
         align-self:flex-end;
+
         text-align: right;
-        padding-right: 10vw;
-        padding-left: 8vw;
+        padding-right: 3vw;
+        padding-left: 10vw;
         min-width: 300px;
+        p{
+            max-width: 400px;
+            justify-self: end;
+        }
     }
     .c3 {
         flex: 3 220;
@@ -150,6 +167,7 @@ header>section {
     .tableImg{
         max-width: 1000px;
         width: 100%;
+        
     }
     body{
         font-size: 1rem;
@@ -167,8 +185,14 @@ header>section {
             zoom: 60%;
             
         }
+    }   
+}
+
+@media only screen and (max-width: 950px){
+    .tableImg{
+        margin-top: 1vh;
+        margin-bottom: 3vh;
     }
-    
 }
 
 .rhHeader{
@@ -188,6 +212,26 @@ header>section {
     backdrop-filter:blur(1px);
 }
 
+
+
+footer{
+    padding-top: 5vh;
+    filter: blur(3px);
+    transition: opacity 2s ease-in-out, filter 2s ease-in-out;
+    opacity: 0;
+    max-width: 100vh;
+    a {
+        color: inherit; 
+    }
+    a:hover{
+        color: inherit;
+    }
+}
+
+footer.show{
+        opacity: 1;
+        filter: blur(0px);
+}
 
 
     
