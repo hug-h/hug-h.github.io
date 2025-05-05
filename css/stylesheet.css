@@ -161,6 +161,10 @@ header>section {
 
 .text{
     min-width: 250px;
+    width: 15% ; 
+    margin-right: 5%;
+    margin-left: 1%;
+
 }
 
 @media only screen and (max-width: 1080px){
