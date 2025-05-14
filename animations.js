@@ -106,11 +106,7 @@ function showFooter(){
 
 
 function extension(){
-    var path = window.location.pathname;
-    var page = path.split("/").pop()
-    let rg = new RegExp(/\..+/gm);
-    var page = page.replace(rg,"");
-    
+    var page = pageName();
     dest = document.getElementById("wrk").parentElement;
     loc =document.createElement("td");
     loc.classList.add("label");
@@ -119,6 +115,17 @@ function extension(){
     dest.appendChild(loc);   
 
 }
+
+
+// get the name of the current page
+function pageName(){
+    var path = window.location.pathname;
+    var page = path.split("/").pop()
+    let rg = new RegExp(/\..+/gm);
+    var page = page.replace(rg,"");
+    return page;
+}
+
 
 
 //-------------------------------------------------
@@ -134,18 +141,21 @@ function popImg(image){
 
 
 //--------------------------------------------------
-// nav 
+// navigation
 
 
-const pages = ["chair.html","slopMachine.html","buchla.html","mot.html"];
-
+const pages = ["chair","slopMachine","buchla","mot"];
 
 function loadPage(page){
     console.log(page);
     if(page!="R"){
-        window.location.href= pages[page];
+        window.location.href= pages[page]+".html";
     }else{
-        randNum = Math.floor(Math.random()*pages.length);
-        window.location.href= pages[randNum];
+        current = pageName();
+        randNum = Math.floor(Math.random()*pages.length); 
+        while(pages[randNum]==current){ // make sure the new page is not the current page
+            randNum = Math.floor(Math.random()*pages.length); 
+        }
+        window.location.href= pages[randNum]+".html";
     }
 }
