@@ -1,0 +1,87 @@
+<head>
+    <title>p>delany is:</title>
+    <link rel="shortcut icon" href="paddy.png" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap');
+
+        body {
+            font-family: "Beau Rivage", cursive;
+            font-weight: 100;
+            font-style: normal;
+            padding: 20%;
+            font-size: 3em;
+        }
+        h1{
+            font-weight: inherit;
+        }
+
+        #word{
+            font-weight: 300;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+
+    <script>
+        function getTheThing(aaaa) { // from mdn docs on fetch
+            // Call `fetch()`, passing in the URL.
+             
+            fetch(aaaa)
+                // fetch() returns a promise. When we have received a response from the server,
+                // the promise's `then()` handler is called with the response.
+                .then((response) => {
+                    // Our handler throws an error if the request did not succeed.
+                    if (!response.ok) {
+                        throw new Error(`HTTP error: ${response.status}`);
+                    }
+                    // Otherwise (if the response succeeded), our handler fetches the response
+                    // as text by calling response.text(), and immediately returns the promise
+                    // returned by `response.text()`.
+                    return response.text();
+                })
+                // When response.text() has succeeded, the `then()` handler is called with
+                // the text, and we copy it into the `poemDisplay` box.
+                .then((text) => {
+                        let rg = new RegExp(/\"(.*)\"/gm);
+                        text = /\"(.*)\"/.exec(text)[1];
+                        document.getElementById("word").innerHTML = text;
+
+
+                })
+                // Catch any errors that might happen, and display a message
+                // in the `poemDisplay` box.
+                .catch((error) => {
+                    console.log("couldn't fetch word")
+                });
+        }
+
+
+
+        function newWord(){
+            word  = getTheThing('https://random-word-api.herokuapp.com/word?');
+            
+
+        }
+
+
+   
+        function start() {
+            newWord();
+            setInterval(newWord, 20000);
+            
+        }
+    </script>
+
+</head>
+
+<body onload="start()">
+
+    <h1><i><a href="https://paddydelany.com/">Paddy Delany</a></i> is: <span id="word"> </span></h1>
+
+
+
+</body>
