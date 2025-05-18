@@ -1,35 +1,54 @@
 <head>
-    <title>p>delany is:</title>
+    <title id="title">P Delany is:</title>
+
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link rel="shortcut icon" href="paddy.png" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Coral+Pixels&display=swap');
+
+        @media only screen and (max-width: 1080px) {
+            body {
+                font-size: 2em;
+                background-color: aquamarine;
+            }
+        }
 
         body {
-            font-family: "Beau Rivage", cursive;
-            font-weight: 100;
+            font-family: "Coral Pixels", serif;
+            font-weight: 400;
             font-style: normal;
-            padding: 20%;
-            font-size: 3em;
-        }
-        h1{
-            font-weight: inherit;
+            padding-top: 10%;
+            padding-right: 30%;
+            font-size: 5em;
+            text-align: center;
+            background: radial-gradient(#ffffff, #ffff00);
+            
         }
 
-        #word{
+        #staticWords {
+            filter: blur(2px);
+        }
+
+        #word {
             font-weight: 300;
             text-align: center;
+            filter: blur(0);
         }
 
         a {
             text-decoration: none;
-            color: inherit;
+            filter: hue-rotate(1deg);
+
+            
         }
     </style>
 
     <script>
         function getTheThing(aaaa) { // from mdn docs on fetch
             // Call `fetch()`, passing in the URL.
-             
+
             fetch(aaaa)
                 // fetch() returns a promise. When we have received a response from the server,
                 // the promise's `then()` handler is called with the response.
@@ -46,9 +65,10 @@
                 // When response.text() has succeeded, the `then()` handler is called with
                 // the text, and we copy it into the `poemDisplay` box.
                 .then((text) => {
-                        let rg = new RegExp(/\"(.*)\"/gm);
-                        text = /\"(.*)\"/.exec(text)[1];
-                        document.getElementById("word").innerHTML = text;
+                    let rg = new RegExp(/\"(.*)\"/gm);
+                    text = /\"(.*)\"/.exec(text)[1];
+                    document.getElementById("word").innerHTML = text;
+                    document.getElementById("title").innerHTML = text;
 
 
                 })
@@ -56,23 +76,22 @@
                 // in the `poemDisplay` box.
                 .catch((error) => {
                     console.log("couldn't fetch word")
+                    document.getElementById("word").innerHTML = "not working right now";
                 });
         }
 
 
 
-        function newWord(){
-            word  = getTheThing('https://random-word-api.herokuapp.com/word?');
-            
+        function newWord() {
+            word = getTheThing('https://random-word-api.herokuapp.com/word?');
+
 
         }
 
-
-   
         function start() {
             newWord();
-            setInterval(newWord, 20000);
-            
+            setInterval(newWord, 2000);
+
         }
     </script>
 
@@ -80,8 +99,7 @@
 
 <body onload="start()">
 
-    <h1><i><a href="https://paddydelany.com/">Paddy Delany</a></i> is: <span id="word"> </span></h1>
-
+    <p><span id="staticWords"><i><a href="https://paddydelany.com/">Paddy Delany</a></i> is: </span></p><p style="text-align: right;"><span id="word"> </span></p>
 
 
 </body>
