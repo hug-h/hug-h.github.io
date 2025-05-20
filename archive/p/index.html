@@ -7,12 +7,15 @@
     <link rel="shortcut icon" href="paddy.png" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Coral+Pixels&display=swap');
-
         @media only screen and (max-width: 1080px) {
             body {
                 font-size: 2em;
                 background-color: aquamarine;
             }
+        }
+
+        .container {
+            filter: blur(1px);
         }
 
         body {
@@ -24,28 +27,76 @@
             font-size: 5em;
             text-align: center;
             background: radial-gradient(#ffffff, #ffff00);
-            
         }
 
         #staticWords {
             filter: blur(2px);
+            filter: hue-rotate(1deg);
         }
 
         #word {
             font-weight: 300;
             text-align: center;
             filter: blur(0);
+            height: 5em;
+        }
+
+        #wordContainer {
+            view-transition-name: gooWord;
         }
 
         a {
             text-decoration: none;
-            filter: hue-rotate(1deg);
-
-            
         }
+
+        /*this removes the view transition fade effect */
+        ::view-transition-group(*){
+            animation: none;
+        }
+        /*
+        ::view-transition-group(gooWord) {
+            filter: url('#goo');
+            animation: ease-in-out 1s;
+        }
+
+        ::view-transition-old(*) {
+            @keyframes -ua-view-transition-fade-out {
+                to {
+                    opacity: 0;
+                }
+                from {
+                    opacity: 0;
+                }
+            }
+        }*/
+
+
+        /*
+        iframe {
+            position: absolute;
+            left: 1vw;
+            top: 1vh;
+            clear: both;
+            width: 98vw;
+            height: 98vh;
+            z-index: 0;
+            border: none;
+            transition: opacity 1s ease-in-out;
+            transition-behavior: allow-discrete;
+            @starting-style {
+                opacity: 0;
+            }
+        }
+
+        .hidden{
+            opacity: 0% !important;
+            display: none;
+        }
+*/
     </style>
 
     <script>
+        let word;
         function getTheThing(aaaa) { // from mdn docs on fetch
             // Call `fetch()`, passing in the URL.
 
@@ -67,10 +118,7 @@
                 .then((text) => {
                     let rg = new RegExp(/\"(.*)\"/gm);
                     text = /\"(.*)\"/.exec(text)[1];
-                    document.getElementById("word").innerHTML = text;
-                    document.getElementById("title").innerHTML = text;
-
-
+                    setWord(text);
                 })
                 // Catch any errors that might happen, and display a message
                 // in the `poemDisplay` box.
@@ -81,25 +129,60 @@
         }
 
 
+        function setWord(WORD) {
+            document.getElementById("title").innerHTML = WORD;
+            document.startViewTransition(() => {
+                document.getElementById("word").innerHTML = WORD;
+                document.getElementById("wikiLink").href = "https://en.wikipedia.org/wiki/" + WORD;
+                //wikiPage(WORD);
+            })
+        }
+
+        /*
+        function wikiPage(page) {
+            frame = document.getElementsByTagName("iframe")[0];
+            //frame.style.display = "none";
+            frame.src = "https://en.wikipedia.org/wiki/" + page;
+        }
+        function wikiDisplay() {
+            frame = document.getElementsByTagName("iframe")[0];
+            //frame.style.display = "block";
+        }
+        function wikiVis() {
+            frame = document.getElementsByTagName("iframe")[0];
+            frame.classList.toggle("hidden");
+        }
+        */
 
         function newWord() {
             word = getTheThing('https://random-word-api.herokuapp.com/word?');
-
-
         }
 
         function start() {
             newWord();
-            setInterval(newWord, 2000);
-
+            setInterval(newWord, 3000);
         }
     </script>
 
 </head>
 
 <body onload="start()">
-
-    <p><span id="staticWords"><i><a href="https://paddydelany.com/">Paddy Delany</a></i> is: </span></p><p style="text-align: right;"><span id="word"> </span></p>
-
-
+    <!--div id="wikiContainer">
+        <iframe src="" id="wikiFrame" onload="wikiDisplay()" class="hidden" loading="lazy"></iframe>
+    </div-->
+    <div class="container">
+        <p><span id="staticWords"><i><a href="https://paddydelany.com/">Paddy Delany</a></i> is: </span></p>
+        <p style="text-align: right;" onclick="wikiVis()" id="wordContainer"><a id="wikiLink"><span id="word">
+                </span><a></p>
+    </div>
 </body>
+
+<!--svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: none;">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -4" result="goo" />
+            <feBlend in="goo" in2="goo" />
+        </filter>
+    </defs>
+</svg-->
