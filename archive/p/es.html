@@ -1,0 +1,199 @@
+<head>
+    <title id="title">P Delany is:</title>
+
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="shortcut icon" href="paddy.png" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Coral+Pixels&display=swap');
+        @media only screen and (max-width: 1080px) {
+            body {
+                font-size: 2em;
+            }
+        }
+
+        .container {
+            filter: blur(0px);
+        }
+
+        body {
+            font-family: "Coral Pixels", serif;
+            font-weight: 400;
+            font-style: normal;
+            padding-top: 10%;
+            padding-right: 30%;
+            font-size: 5em;
+            text-align: center;
+            /*background: radial-gradient(#ffffff, #ffff00);*/
+        }
+
+        img{
+            position: absolute;
+            top: 0;
+            right: 0;
+            object-fit: fill;
+            width: 100vw;
+            height: 100%;
+            filter: brightness(3) blur(15px);
+            
+        }
+
+        #staticWords {
+            filter: blur(2px);
+            filter: hue-rotate(1deg);
+        }
+
+        #word {
+            font-weight: 300;
+            text-align: center;
+            filter: blur(0);
+            height: 5em;
+        }
+
+        #wordContainer {
+            view-transition-name: gooWord;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /*this removes the view transition fade effect */
+        ::view-transition-group(*){
+            animation: none;
+        }
+        /*
+        ::view-transition-group(gooWord) {
+            filter: url('#goo');
+            animation: ease-in-out 1s;
+        }
+
+        ::view-transition-old(*) {
+            @keyframes -ua-view-transition-fade-out {
+                to {
+                    opacity: 0;
+                }
+                from {
+                    opacity: 0;
+                }
+            }
+        }*/
+
+
+        /*
+        iframe {
+            position: absolute;
+            left: 1vw;
+            top: 1vh;
+            clear: both;
+            width: 98vw;
+            height: 98vh;
+            z-index: 0;
+            border: none;
+            transition: opacity 1s ease-in-out;
+            transition-behavior: allow-discrete;
+            @starting-style {
+                opacity: 0;
+            }
+        }
+
+        .hidden{
+            opacity: 0% !important;
+            display: none;
+        }
+*/
+    </style>
+
+    <script>
+        let word;
+        function getTheThing(aaaa) { // from mdn docs on fetch
+            // Call `fetch()`, passing in the URL.
+
+            fetch(aaaa)
+                // fetch() returns a promise. When we have received a response from the server,
+                // the promise's `then()` handler is called with the response.
+                .then((response) => {
+                    // Our handler throws an error if the request did not succeed.
+                    if (!response.ok) {
+                        throw new Error(`HTTP error: ${response.status}`);
+                    }
+                    // Otherwise (if the response succeeded), our handler fetches the response
+                    // as text by calling response.text(), and immediately returns the promise
+                    // returned by `response.text()`.
+                    return response.text();
+                })
+                // When response.text() has succeeded, the `then()` handler is called with
+                // the text, and we copy it into the `poemDisplay` box.
+                .then((text) => {
+                    let rg = new RegExp(/\"(.*)\"/gm);
+                    text = /\"(.*)\"/.exec(text)[1];
+                    setWord(text);
+                })
+                // Catch any errors that might happen, and display a message
+                // in the `poemDisplay` box.
+                .catch((error) => {
+                    console.log("couldn't fetch word")
+                    document.getElementById("word").innerHTML = "not working right now";
+                });
+        }
+
+
+        function setWord(WORD) {
+            document.getElementById("title").innerHTML = WORD;
+            document.startViewTransition(() => {
+                document.getElementById("word").innerHTML = WORD;
+                document.getElementById("wikiLink").href = "https://en.wikipedia.org/wiki/" + WORD;
+                //wikiPage(WORD);
+            })
+        }
+
+        /*
+        function wikiPage(page) {
+            frame = document.getElementsByTagName("iframe")[0];
+            //frame.style.display = "none";
+            frame.src = "https://en.wikipedia.org/wiki/" + page;
+        }
+        function wikiDisplay() {
+            frame = document.getElementsByTagName("iframe")[0];
+            //frame.style.display = "block";
+        }
+        function wikiVis() {
+            frame = document.getElementsByTagName("iframe")[0];
+            frame.classList.toggle("hidden");
+        }
+        */
+
+        function newWord() {
+            word = getTheThing('https://random-word-api.herokuapp.com/word?lang=es');
+        }
+
+        function start() {
+            newWord();
+            setInterval(newWord, 3000);
+        }
+    </script>
+
+</head>
+
+<body onload="start()">
+    <!--div id="wikiContainer">
+        <iframe src="" id="wikiFrame" onload="wikiDisplay()" class="hidden" loading="lazy"></iframe>
+    </div-->
+    <img src="spain.svg">
+    <div class="container">
+        <p><span id="staticWords"><i><a href="https://paddydelany.com/">Paddy Delany</a></i> es: </span></p>
+        <p style="text-align: right;" onclick="wikiVis()" id="wordContainer"><a id="wikiLink"><span id="word">
+                </span><a></p>
+    </div>
+</body>
+
+<!--svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: none;">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -4" result="goo" />
+            <feBlend in="goo" in2="goo" />
+        </filter>
+    </defs>
+</svg-->
