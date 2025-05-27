@@ -1,0 +1,90 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>hguh</title>
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+    <script src="animations.js"></script>
+    <link rel="shortcut icon" href="images/favicon.png"/>
+</head>
+
+
+
+
+<script>
+    const text404 = ["404", "page not found"];
+    animateSeparator();
+    let counter = 0;
+    function animateSeparator() {
+        document.startViewTransition(() => {
+            counter = (counter + 1) % text404.length;
+            tags = [...document.getElementsByClassName("gooey")];
+            tags.forEach((tag) => {
+                stuff = document.createElement("span");
+                stuff.innerHTML = text404[counter];
+                tag.innerHTML = "";
+                tag.appendChild(stuff);
+            })
+        })
+    }
+    setInterval(animateSeparator, 3000);
+</script>
+
+
+<style>
+    .gooey {
+        font-size: 5em;
+        view-transition-name: gooFade;
+        filter: inherit
+    }
+
+    #stuff {
+        filter: url('#goo');
+    }
+
+    ::view-transition-group(gooFade) {
+        filter: url('#goo');
+        animation: ease-in 1.4s;
+    }
+</style>
+
+<header style="max-width: 1700px; view-transition-name: none;">
+        <section>
+            <p style="flex: 1;">Hugh Clery Ward <span id="animatedText"></span></p>
+            <div class="rhHeader">
+                <p>Music Media & Performance Technology Student</p>        
+            </div>
+        </section>
+        <section>
+            <div style="flex: 1;">
+            <table class="selector">
+                <tr>
+                    <td id="bio"> <a href="index.html">Bio</a> </td>
+                    <td class="animSeparator"> // </td>
+                    <td id="wrk"><a href="work.html">Work</a></td>
+                </tr>
+            </table>
+            </div>
+            <div class="rhHeader">
+                <p style="text-align: right;">Limerick, Ireland</p>
+            </div>
+        </section>
+        </header>
+
+<div id="stuff" style="padding-top: 30vh;padding-left: 30vw;">
+    <div class="gooey"> ////// </div>
+</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1.8" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 13 -5" result="goo" />
+            <feBlend in="goo" in2="goo" />
+        </filter>
+    </defs>
+</svg>
+
+
+<!--filter from:https://css-tricks.com/gooey-effect/-->

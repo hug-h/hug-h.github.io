@@ -1,0 +1,122 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>hguh</title>
+    <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+    <script src="../animations.js"></script>
+    <link rel="shortcut icon" href="../images/favicon.png" />
+    <style>
+        @font-face {
+            font-family: fT88;
+            src: url("misc/FT88-Italic.woff") format("woff");
+        }
+
+        h1 {
+            font-family: fT88;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body onload="load(); extension()">
+    <header style="max-width: 1700px;">
+        <section>
+            <p style="flex: 1;">Hugh Clery Ward <span id="animatedText"></span></p>
+            <div class="rhHeader">
+                <p>Music Media & Performance Technology Student</p>
+            </div>
+        </section>
+        <section>
+            <div style="flex: 1;">
+                <table class="selector">
+                    <tr>
+                        <td id="bio"> <a href="../index.html">Bio</a> </td>
+                        <td class="animSeparator"> // </td>
+                        <td id="wrk" onmouseenter="loadGl()"><a href="index.html">Work</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="rhHeader">
+                <p style="text-align: right;">Limerick, Ireland</p>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <br><br>
+        <section style="justify-content: center;" id="mainContent">
+            <div style="width: 15% ; margin-right: 5%;" class="text">
+                <h1>RD2DOOM</h1>
+                <p>
+                    Music Video 2024<br>
+                    Shoot, Edit & Concept<br>
+                    2m19s
+                    <br>
+                    <br>
+                    Utilising a mixture of hyperlapse photography, video, and 3D animation, this short fast paced video
+                    takes advantage of flash photography and low resolution 3D scans to create an overexposed, jarring
+                    aesthetic, heavily inspired by <a
+                        href="https://en.wikipedia.org/wiki/You_Wouldn%27t_Steal_a_Car"><i>You Wouldn't Steal a
+                            Car</i></a>
+
+                </p>
+            </div>
+            <div style="margin-right: 15%;margin-left: 0%; display: none;" class="ytVid">
+                <iframe width="560" height="420"
+                    src="https://www.youtube-nocookie.com/embed/FXSZvOprM5M?si=C--LFUrmJkltDnjf" loading="lazy"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            ../<div style="margin-right: 10%;margin-left: 0%;" class="img" onclick="popImg(1);">
+                <img src="../images/chair2.gif">
+                ../<div popover id="img1">
+                    <img src="../images/chair2.gif" class="popImg">
+                </div>
+            </div>
+            <div style="width: 15% ; margin-right: 5%;" class="text">
+                <p>
+                    No-budget music video for the track <a
+                        href="https://chezmonplaisir.bandcamp.com/track/rd2doom">RD2DOOM</a> by Monplaisir<br>
+                    Solo shoot using android phone camera & Nikon SB20 flash in and around the University of Limerick in
+                    May 2024<br>
+                </p>
+            </div>
+            ../<div style="margin-right: 10%;margin-left: 0%;" class="img" onclick="popImg(2);">
+                <img src="../images/chair3.gif">
+                ../<div popover id="img2">
+                    <img src="../images/chair3.gif" class="popImg">
+                </div>
+            </div>
+            <div style="margin-right: 15%;margin-left: 0%; display: none;" class="ytVid">
+                <iframe src="https://poly.cam/capture/4877803b-b4bc-4066-883b-aa8d15dd9be5/embed"
+                    title="Polycam capture viewer" loading="lazy"
+                    style="height:100%;width:100%;max-height:720px;max-width:1280px;min-height:280px;min-width:280px"
+                    frameborder="0"></iframe>
+            </div>
+            ../<div style="margin-right: 15%;margin-left: 0%;" class="img" onclick="popImg(3);">
+                <img src="../images/chair.gif">
+                ../<div popover id="img3">
+                    <img src="../images/chair.gif" class="popImg">
+                </div>
+            </div>
+            <div style="width: 15% ; margin-right: 5%;" class="text">
+                <p>
+                    Development began with 3D scans in polycam prompting the juxtaposition of 3D renders and photography
+                    while maintaining the same pattern of motion around the chair as it moves through urban landsacpes.
+                </p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <table class="selector">
+            <tr>
+                <td><a href="index.html">Back</a></td>
+                <td class="animSeparator"> // </td>
+                <td id="wrk" onclick="loadPage('R')"><a>More</a></td>
+            </tr>
+        </table>
+    </footer>
+</body>
