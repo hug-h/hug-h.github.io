@@ -4,16 +4,17 @@
     <meta charset="utf8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>hguh</title>
-    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-    <script src="animations.js"></script>
-    <link rel="shortcut icon" href="images/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+    <script src="/animations.js"></script>
+    <link rel="shortcut icon" href="/images/favicon.png"/>
 </head>
 
 
 
 
 <script>
-    const text404 = ["404", "page not found"];
+    const movingtext = document.createElement("span").classList.add("animSeparator");
+    const text404 = ["404", "page not found","there is nothing here","404","go somewhere else","404","this is surely not a usability error","Ƹ̵̡⁠Ӝ̵̨̄⁠Ʒ","♡404♡","✿","(⁠4˃͈⁠ ⁠0⁠ ⁠˂͈⁠ ⁠4༶⁠ ⁠)"];
     animateSeparator();
     let counter = 0;
     function animateSeparator() {
@@ -60,9 +61,9 @@
             <div style="flex: 1;">
             <table class="selector">
                 <tr>
-                    <td id="bio"> <a href="index.html">Bio</a> </td>
+                    <td id="bio"> <a href="/index.html">Bio</a> </td>
                     <td class="animSeparator"> // </td>
-                    <td id="wrk"><a href="work.html">Work</a></td>
+                    <td id="wrk"><a href="/work/index.html">Work</a></td>
                 </tr>
             </table>
             </div>
