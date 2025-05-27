@@ -1,0 +1,104 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>hguh</title>
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+    <script src="animations.js"></script>
+    <link rel="shortcut icon" href="/images/favicon.png"/>
+</head>
+
+<body onload="load(); extension();">
+    <header style="max-width: 1700px;">
+        <section>
+            <p style="flex: 1;">Hugh Clery Ward <span id="animatedText"></span></p>
+            <div class="rhHeader">
+                <p>Music Media & Performance Technology Student</p>        
+            </div>
+        </section>
+        <section>
+            <div style="flex: 1;">
+            <table class="selector">
+                <tr>
+                    <td id="bio"> <a href="index.html">Bio</a> </td>
+                    <td class="animSeparator"> // </td>
+                    <td id="wrk" onmouseenter="loadGl()"><a href="work.html">Work</a></td>
+                </tr>
+            </table>
+            </div>
+            <div class="rhHeader">
+                <p style="text-align: right;">Limerick, Ireland</p>
+            </div>
+        </section>
+        </header>
+
+    <main>
+        <br><br>
+        <section style="justify-content: center;" id="mainContent">
+            <div class="text">
+                <h1>Textual Buchla:</h1>
+                <h2><i>Re-Interfacing the 250e</i></h2>
+                <br>
+                <p>
+                    Final Year Research Project 2024/2025<br>
+                    Carried out in fulfillment of a BSc in Music Media & Performance Technology at the University of Limerick<br>
+                    <br>
+                    This research investigates the Buchla 250e <i>Dual Arbitrary Function Generator</i> and presents a series of max patches encapsulating the conceptual metaphors of the 250e in a new <i>textually controlled</i> environment, developed for live performance contexts. 
+
+                </p>
+            </div>
+            <div style="margin-right: 15%;margin-left: 0%; display: none;" class="ytVid">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/65CkfVHoEfo?si=lIUDrILJ-fwCvZJQ" loading="lazy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div style="margin-right: 10%;margin-left: 0%;" class="img" onclick="popImg(1);">
+                <img src="/images/buchla1.gif">   
+                <div popover id="img1">
+                    <img src="/images/buchla1.gif" class="popImg">
+                </div>            
+            </div>
+            <div class="text">
+                <p>
+                    This work focuses on providing a new interface for the functions of the 250e, taking inspiration from Live-Coding approaches and allowing for the development of new abstractions over device functionality.
+                    Alongisde a new interface, this work presents several extensions on the functionality of the 250e and integrates the device in alongside a number of synthesis and sampling approaches, unavailable in the Buchla ecosystem, such as granular sampling.
+                    <br><br>
+                    A Max for Live version of the resulting device will be available soon.
+                </p>
+            </div>
+            <div style="margin-right: 10%;margin-left: 0%;" class="img" onclick="popImg(2);">
+                <img src="/images/b250.gif">      
+                <div popover id="img2">
+                    <img src="/images/b250.gif" class="popImg">
+                </div>         
+            </div>
+            <div style="margin-right: 10%;margin-left: 0%;" class="img" onclick="popImg(3);">
+                <img src="/images/250gen.gif">
+                <div popover id="img3">
+                    <img src="/images/250gen.gif" class="popImg">
+                </div>         
+            </div>
+            <div class="text">
+                <p>
+                    The Buchla 250e is an esoteric device used for the sequencing, structuring and manipulation of voltages and pulses in the Buchla 200e Modular Synthesis system. 
+                    By grounding the development of a new device in the powerful conceptual framework leveraged by the 250e, this work presents a device which extends Buchlas' sequencing concepts into a new <i>textually controlled</i> context.                    
+                </p>
+            </div>
+            <div style="margin-right: 10%;margin-left: 0%;" class="img" onclick="popImg(4);">
+                <img src="/images/b251.gif">
+                <div popover id="img4">
+                    <img src="/images/b251.gif" class="popImg">
+                </div>         
+            </div>
+        </section>
+    </main>
+    <footer>
+        <table class="selector">
+            <tr>
+                <td><a href="work.html">Back</a></td>
+                <td class="animSeparator"> // </td>
+                <td id="wrk" onclick="loadPage('R')"><a>More</a></td>
+            </tr>
+        </table>
+    </footer>
+</body>
