@@ -1,3 +1,4 @@
+<!--with great love, appreciation and adoration to  my dear friend paddy-->>
 <head>
     <title id="title">P Delany is:</title>
 
@@ -26,7 +27,7 @@
             padding-right: 30%;
             font-size: 5em;
             text-align: center;
-            background: radial-gradient(#ffffff, #ffff00);
+            background: radial-gradient(#ffffff, #ffff00);            
         }
 
         #staticWords {
@@ -50,9 +51,41 @@
         }
 
         /*this removes the view transition fade effect */
-        ::view-transition-group(*){
+        ::view-transition-group(*) {
             animation: none;
         }
+
+
+
+            #confetti {
+        width: 100%;
+        height: 100%;
+        font-family: monospace;
+        z-index: 9999;
+        display:block;
+        top: 0;
+        left: 0;
+
+        div {
+            width: 100%;
+            text-align: center;
+            font-size: 1vh;
+            line-height: 1vh;
+            
+        }
+    }
+    #bday{
+        font-family: 'Times New Roman', Times, serif;
+        color: white;
+        
+        filter: blur(5px) drop-shadow(10px 10px 4px black);
+    }
+    .bdayImg{
+        background-image: url(bday.png);
+        background-size: contain;
+        background-clip: padding-box;
+    }
+
         /*
         ::view-transition-group(gooWord) {
             filter: url('#goo');
@@ -158,9 +191,70 @@
             word = getTheThing('https://random-word-api.herokuapp.com/word?');
         }
 
+        function checkDate() {
+            today = new Date();
+            birthday = 0
+            if (today.getDate() == 18 && today.getMonth() == 9) {
+                console.log("PADDYS BIRTHDAY");
+                birthday = 1;
+            } else {
+                console.log("not PADDYS BIRTHDAY");
+            }
+            return birthday;
+        }
+
+
+
+
+
+
+        function animConfetti() {
+            target = document.getElementById("confetti");
+            target.innerHTML = ""
+            for (i = 0; i < 50; i++) {
+
+                line = document.createElement("div");
+                text = ""
+                for (y = 0; y < 60; y++) {
+                    bit = document.createElement("span")
+                    bit.innerHTML = randStar()
+                    text += randStar();
+                }
+                line.innerHTML = text;
+                target.appendChild(line);
+            }
+        }
+
+        function randStar() {
+            let p = Math.random() * 1.2;
+            if (p < 0.10) return '. '; // Bright Star
+            if (p < 0.40) return '* '; // Faint Star
+            if (p < 0.45) return ' o'; // Fading/Large Star
+            return 'p '; // Star disappears (fades out)
+        }
+
+        function birthdaySequence(){
+            document.body.classList.add("bdayImg");
+            div = document.createElement("div");
+            //div.id="confetti";
+            document.getElementsByClassName("container")[0].appendChild(div);
+            confettiInterval = setInterval(animConfetti,100);
+            document.getElementById("word").innerHTML = "Birthday today <br> <div id='bday'><i>his skin is made of silver</i> <br> his heart is made of gold<b></div>";
+        }
+
+
+
+
+        //starting sequence
         function start() {
-            newWord();
-            setInterval(newWord, 3000);
+            let bDay = checkDate();
+            if (!bDay) {
+                newWord();
+                wordupdate = setInterval(newWord, 3000);
+            } else {
+                birthdaySequence();
+            }
+
         }
     </script>
 
