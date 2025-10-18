@@ -1,10 +1,10 @@
-<!--with great love, appreciation and adoration to  my dear friend paddy-->>
+<!--with great love, appreciation and adoration to  my dear friend paddy-->
 <head>
     <title id="title">P Delany is:</title>
 
     <meta charset="utf8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <script src="birthday.js"></script>
     <link rel="shortcut icon" href="paddy.png" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Coral+Pixels&display=swap');
@@ -27,7 +27,7 @@
             padding-right: 30%;
             font-size: 5em;
             text-align: center;
-            background: radial-gradient(#ffffff, #ffff00);            
+            background: radial-gradient(#ffffff, #ffff00);
         }
 
         #staticWords {
@@ -41,11 +41,6 @@
             filter: blur(0);
             height: 5em;
         }
-
-        #wordContainer {
-            view-transition-name: gooWord;
-        }
-
         a {
             text-decoration: none;
         }
@@ -56,35 +51,46 @@
         }
 
 
-
-            #confetti {
-        width: 100%;
-        height: 100%;
-        font-family: monospace;
-        z-index: 9999;
-        display:block;
-        top: 0;
-        left: 0;
-
-        div {
+        /*birthday css*/
+        #confetti {
             width: 100%;
-            text-align: center;
-            font-size: 1vh;
-            line-height: 1vh;
-            
+            height: 100%;
+            font-family: serif;
+            z-index: -1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            color: rgba(255, 255, 255, .8);
+            filter: blur(1px);
+
+            div {
+                width: 100%;
+                text-align: center;
+                justify-content: space-between;
+                font-size: 2vh;
+                line-height: 1vh;
+                display: flex;
+                padding-top: 0.5vh;
+                padding-bottom: 0.5vh;
+            }
         }
-    }
-    #bday{
-        font-family: 'Times New Roman', Times, serif;
-        color: white;
-        
-        filter: blur(5px) drop-shadow(10px 10px 4px black);
-    }
-    .bdayImg{
-        background-image: url(bday.png);
-        background-size: contain;
-        background-clip: padding-box;
-    }
+
+        #bday {
+            font-family: 'Times New Roman', Times, serif;
+            color: white;
+            font-size: 9vh;
+            background-color: rgba(0, 0, 255, 0.8);
+            filter: blur(5px) drop-shadow(10px 10px 4px black);
+            width: fit-content;
+            margin-left: 15vw;
+            margin-top: 13vh;
+        }
+
+        .bdayImg {
+            background-image: url(bday.png);
+            background-size: contain;
+            background-clip: padding-box;
+        }
 
         /*
         ::view-transition-group(gooWord) {
@@ -132,7 +138,6 @@
         let word;
         function getTheThing(aaaa) { // from mdn docs on fetch
             // Call `fetch()`, passing in the URL.
-
             fetch(aaaa)
                 // fetch() returns a promise. When we have received a response from the server,
                 // the promise's `then()` handler is called with the response.
@@ -152,6 +157,7 @@
                     let rg = new RegExp(/\"(.*)\"/gm);
                     text = /\"(.*)\"/.exec(text)[1];
                     setWord(text);
+                    updateBdayWords(text);
                 })
                 // Catch any errors that might happen, and display a message
                 // in the `poemDisplay` box.
@@ -186,9 +192,13 @@
             frame.classList.toggle("hidden");
         }
         */
-
+        let wordLength = 0;
         function newWord() {
-            word = getTheThing('https://random-word-api.herokuapp.com/word?');
+            if (wordLength > 0) {
+                word = getTheThing('https://random-word-api.herokuapp.com/word?length=' + wordLength);
+            } else {
+                word = getTheThing('https://random-word-api.herokuapp.com/word?');
+            }
         }
 
         function checkDate() {
@@ -203,61 +213,17 @@
             return birthday;
         }
 
-
-
-
-
-
-        function animConfetti() {
-            target = document.getElementById("confetti");
-            target.innerHTML = ""
-            for (i = 0; i < 50; i++) {
-
-                line = document.createElement("div");
-                text = ""
-                for (y = 0; y < 60; y++) {
-                    bit = document.createElement("span")
-                    bit.innerHTML = randStar()
-                    text += randStar();
-                }
-                line.innerHTML = text;
-                target.appendChild(line);
-            }
-        }
-
-        function randStar() {
-            let p = Math.random() * 1.2;
-            if (p < 0.10) return '. '; // Bright Star
-            if (p < 0.40) return '* '; // Faint Star
-            if (p < 0.45) return ' o'; // Fading/Large Star
-            return 'p '; // Star disappears (fades out)
-        }
-
-        function birthdaySequence(){
-            document.body.classList.add("bdayImg");
-            div = document.createElement("div");
-            //div.id="confetti";
-            document.getElementsByClassName("container")[0].appendChild(div);
-            confettiInterval = setInterval(animConfetti,100);
-            document.getElementById("word").innerHTML = "Birthday today <br> <div id='bday'><i>his skin is made of silver</i> <br> his heart is made of gold<b></div>";
-        }
-
-
-
-
         //starting sequence
         function start() {
             let bDay = checkDate();
             if (!bDay) {
                 newWord();
-                wordupdate = setInterval(newWord, 3000);
             } else {
                 birthdaySequence();
             }
-
+            wordupdate = setInterval(newWord, 3000);
         }
     </script>
-
 </head>
 
 <body onload="start()">
