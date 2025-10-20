@@ -1,3 +1,4 @@
+let pBirthday = [18,10]; //date of birth D M
 function animConfetti() {
     target = document.getElementById("confetti");
     target.innerHTML = ""
@@ -84,6 +85,9 @@ function birthdaySequence() {
     document.getElementById("staticWords").innerHTML += "born on this day <br> <div id='bday'></div>";
 }
 
+
+
+// shift p keyboard combo to open the password dialogue box
 key = [0, 0]
 document.addEventListener('keydown', (e) => {
     if (e.code == "KeyP") { key[0] = 1; }
@@ -94,9 +98,43 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('keyup', (e) => {
     if (e.code == "KeyP") { key[0] = 0; }
     if (e.key == "Shift") { key[1] = 0; }
-    console.log();
 })
 
-function secretPasswordPrompt(){
 
+// tap counter, three taps opens the dialogue
+document.addEventListener('mousedown',()=>{
+    tapCounter(1);
+    setTimeout(function(){tapCounter(-1)},500);
+})
+
+tapCount = 0;
+function tapCounter(val){
+    tapCount = Math.min((tapCount+val),3) ;// clipping the range of this variable to 0-3
+    if(tapCount>=3){
+        secretPasswordPrompt()
+    }
+}
+
+
+function secretPasswordPrompt(){
+    document.getElementById("pinPopover").togglePopover();
+}
+
+
+//input and button stuff ! 
+input = document.getElementById("pinInput").addEventListener('keypress', (e)=>{
+    if(e.key ==="Enter"){
+        e.preventDefault();
+        document.getElementById("pinSubmitButton").click();
+    }
+})
+
+function test(a){
+    val = document.getElementById("pinInput").value
+    if(val==(pBirthday[0]*100+pBirthday[1])){ // if paddys birthday 
+        birthdaySequence();
+        document.getElementById("pinPopover").togglePopover();
+    }else{
+        document.getElementById("pinPopover").togglePopover();
+    }
 }

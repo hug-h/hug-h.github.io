@@ -1,4 +1,5 @@
 <!--with great love, appreciation and adoration to  my dear friend paddy-->
+
 <head>
     <title id="title">P Delany is:</title>
 
@@ -9,10 +10,12 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Coral+Pixels&display=swap');
         @media only screen and (max-width: 1200px) {
-            body,#word{
+
+            body,
+            #word {
                 font-size: 2em !important;
             }
-        }   
+        }
 
         .container {
             filter: blur(1px);
@@ -40,8 +43,19 @@
             filter: blur(0);
             height: 5em;
         }
+
         a {
             text-decoration: none;
+        }
+
+        input {
+            font-size: inherit;
+            font-family: serif;
+            text-align: center;
+            font-weight: bold;
+            filter: blur(2px) brightness(2);
+            background-color: red;
+            color: #ffffff;
         }
 
         /*this removes the view transition fade effect */
@@ -203,7 +217,7 @@
         function checkDate() {
             today = new Date();
             birthday = 0
-            if (today.getDate() == 18 && today.getMonth() == 9) {
+            if (today.getDate() == pBirthday[0] && today.getMonth() == pBirthday[1]-1) {
                 console.log("PADDYS BIRTHDAY");
                 birthday = 1;
             } else {
@@ -235,7 +249,11 @@
                 </span><a></p>
     </div>
     <div popover id="pinPopover">
-        <h2>ysysy</h2>
+        <form action="javascript:;" onsubmit=" test()">
+            <p>Pin:</p>
+            <input type="number" name="pin" maxlength="4" autofocus id="pinInput">
+            <input type="submit" id="pinSubmitButton">
+        </form>
     </div>
 </body>
 
