@@ -15,7 +15,7 @@ body {
     background: white;
     color: black;
     font-size: 1rem;
-    min-height: 100vh;
+    min-height: 50vh; /*was 100 but not surewhy*/
 
 }
 
@@ -137,6 +137,7 @@ header>section {
 #workDiv {
     /*columns structuring for the work page*/
     display: flex;
+    padding-right: 10vw;
     flex-direction: column;
     background: rgba(0, 0, 0, 0);
     section {
@@ -197,7 +198,7 @@ header>section {
 
 .tableImg {
     /*table image sizing // not actually used in a table but it looks like one*/
-    min-width: 320px;
+    min-width: 160px;
     max-width: 320px;
     width: 100%;
     height: auto;

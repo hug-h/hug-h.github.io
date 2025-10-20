@@ -83,3 +83,20 @@ function birthdaySequence() {
     document.getElementById("word").style.display = "none";
     document.getElementById("staticWords").innerHTML += "born on this day <br> <div id='bday'></div>";
 }
+
+key = [0, 0]
+document.addEventListener('keydown', (e) => {
+    if (e.code == "KeyP") { key[0] = 1; }
+    if (e.key == "Shift") { key[1] = 1; }
+    if((key[0]+key[1])==2){secretPasswordPrompt()}
+})
+
+document.addEventListener('keyup', (e) => {
+    if (e.code == "KeyP") { key[0] = 0; }
+    if (e.key == "Shift") { key[1] = 0; }
+    console.log();
+})
+
+function secretPasswordPrompt(){
+
+}

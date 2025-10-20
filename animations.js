@@ -144,7 +144,7 @@ function popImg(image){
 // navigation
 
 
-const pages = ["chair","slopMachine","buchla","mot"];
+const pages = ["chair","slopMachine","buchla","mot","web"];
 
 function loadPage(page){
     console.log(page);
