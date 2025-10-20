@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<head>
+    <title>confetti</title>
+
+    <style>
+        #confetti {
+            width: 100%;
+            height: 100%;
+            font-family: serif;
+            z-index: -1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            color: black;
+            filter: blur(1px);
+
+            div {
+                width: 100%;
+                text-align: center;
+                justify-content: space-between;
+                font-size: 2vh;
+                line-height: 1vh;
+                display: flex;
+                padding-top: 0.5vh;
+                padding-bottom: 0.5vh;
+            }
+        }
+
+        input {
+            background-color: rgba(255, 255, 255, .5);
+        }
+    </style>
+
+
+    <script>
+        let density = 100;
+        let interval = 100;
+
+        function animate() {
+            confettiInterval = setInterval(animConfetti, interval);
+        }
+
+        function animConfetti() {
+            target = document.getElementById("confetti");
+            target.innerHTML = ""
+            for (i = 0; i < 50; i++) {
+
+                line = document.createElement("div");
+                for (y = 0; y < Math.floor(Math.random() * density + 5); y++) {
+                    bit = document.createElement("span")
+                    bit.innerHTML = randFigure()
+                    if (Math.random() > .5) {
+                        bit.style.color = "rgba(255,0,0, 0.8)";
+                    }
+                    line.appendChild(bit);
+                }
+                target.appendChild(line);
+            }
+        }
+
+        function randFigure() {
+            return figures[Math.trunc(Math.random() * figures.length)];
+        }
+
+        let figures = ['*', 'o', '', '', ' ', ' ', ' ']
+
+        document.addEventListener('keyup', () => {
+            figures[0] = document.getElementById("word1").value;
+            figures[2] = document.getElementById("word2").value;
+        })
+
+
+        //build the site
+
+        function build(nInputs) {
+            inputContainer = document.getElementById("inputs")
+            for (i = 0; i < nInputs; i++) {
+                input = document.createElement("input");
+                input.type = "text";
+                input.id = "word" + i;
+                inputContainer.appendChild(input);
+                inputContainer.appendChild(document.createElement("br"));
+
+
+            }
+            document.addEventListener('keyup', () => {
+                for (i = 0; i < nInputs; i++) {
+                    figures[i + 2] = document.getElementById("word" + i).value;
+                }
+            })
+        }
+
+
+
+        function load(x) {
+            build(x);
+            animate();
+        }
+    </script>
+
+
+
+</head>
+
+<body onload="(load(5))">
+    <div id="inputs"></div>
+    <div id="confetti"></div>
+
+</body>

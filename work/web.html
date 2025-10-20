@@ -9,9 +9,27 @@
     <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
     <script src="../animations.js"></script>
     <link rel="shortcut icon" href="../images/favicon.png" />
+    <style>
+        iframe{
+            display: none;
+        }
+    </style>
+    <script>
+        function randFrames(){
+            frames = [...document.getElementsByTagName("iframe")];
+            
+            frames.forEach(element => {
+                if(Math.random()>0.7){
+                    element.style.display="block";
+                }
+            });
+        }
+        
+
+    </script>
 </head>
 
-<body onload="load(); extension();">
+<body onload="load(); extension(); randFrames()">
     <header style="max-width: 1700px;">
         <section>
             <p style="flex: 1;">Hugh Clery Ward <span id="animatedText"></span></p>
@@ -50,9 +68,6 @@
                     Gif made from a video of a small horse grazing I took on the side of the road while cycling to
                     college.
                 </p>
-                <br>
-                <!--iframe loading="lazy" src="../archive/horse/index.html" scrolling="no"
-                    style="width: 100%;height: 500px;"></iframe-->
             </div>
             <div class="text">
                 <h2><a href="../archive/p/index.html">paddy delany is:</a></h2>
@@ -67,8 +82,8 @@
                 </p>
                 <br>
                 <div style="zoom: 50%;filter: blur(3px);">
-                    <!--iframe loading="lazy" src="../archive/p/index.html" scrolling="no"
-                        style="width: 100%;height: 500px;"></iframe-->
+                    <iframe loading="lazy" src="../archive/p/index.html" scrolling="no"
+                        style="width: 100%;height: 500px;"></iframe>
                 </div>
             </div>
             <div class="text">
@@ -84,8 +99,8 @@
                     style="margin-right: 0;filter: grayscale()"><!--gif from https://anlucas.neocities.org/-->
                 <br>
                 <div style="zoom: 50%;filter: blur(3px);">
-                    <!--iframe loading="lazy" src="https://prizedband.neocities.org" scrolling="no"
-                        style="width: 100%;height: 500px;"></iframe-->
+                    <iframe loading="lazy" src="https://prizedband.neocities.org" scrolling="no"
+                        style="width: 100%;height: 500px;"></iframe>
                 </div>
             </div>
             <div class="text">
@@ -97,8 +112,22 @@
                 </p>
                 <br>
                 <div style="zoom: 50%;filter: blur(3px);">
-                    <!--iframe loading="lazy" src="../archive/fakeWiki/index.html" scrolling="no"
-                        style="width: 100%;height: 500px;"></iframe-->
+                    <iframe loading="lazy" src="../archive/fakeWiki/index.html" scrolling="no"
+                        style="width: 100%;height: 500px;"></iframe>
+                </div>
+
+            </div>
+            <div class="text">
+                <h2><a href="../archive/confetti/index.html">confetti</a></h2>
+                <p>2025</p>
+                <br>
+                <p>
+                    js word confetti thing, very small and quick and nice 
+                </p>
+                <br>
+                <div style="zoom: 50%;filter: blur(3px);">
+                    <iframe loading="lazy" src="../archive/confetti/index.html" scrolling="no"
+                        style="width: 100%;height: 500px;"></iframe>
                 </div>
 
             </div>
