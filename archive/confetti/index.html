@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>confetti</title>
 
     <style>
@@ -30,14 +31,26 @@
         input {
             background-color: rgba(255, 255, 255, .5);
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 
 
     <script>
         let density = 100;
         let interval = 100;
+        let numInputs = 3;
+        let confettiInterval;
+
+        function load() {
+            build(numInputs);
+            animate();
+        }
 
         function animate() {
+            if(confettiInterval){clearInterval(confettiInterval)};
             confettiInterval = setInterval(animConfetti, interval);
         }
 
@@ -47,10 +60,10 @@
             for (i = 0; i < 50; i++) {
 
                 line = document.createElement("div");
-                for (y = 0; y < Math.floor(Math.random() * density + 5); y++) {
+                for (y = 0; y < Math.floor(Math.random() * density + 2); y++) {
                     bit = document.createElement("span")
                     bit.innerHTML = randFigure()
-                    if (Math.random() > .5) {
+                    if (Math.random() >.5) {
                         bit.style.color = "rgba(255,0,0, 0.8)";
                     }
                     line.appendChild(bit);
@@ -63,39 +76,60 @@
             return figures[Math.trunc(Math.random() * figures.length)];
         }
 
-        let figures = ['*', 'o', '', '', ' ', ' ', ' ']
-
-        document.addEventListener('keyup', () => {
-            figures[0] = document.getElementById("word1").value;
-            figures[2] = document.getElementById("word2").value;
-        })
-
+        let figures = ['*', 'o', '.', '_', '?', ' ', ' ']
 
         //build the site
 
         function build(nInputs) {
-            inputContainer = document.getElementById("inputs")
+            console.log(figures);
+            inputContainer = document.getElementById("inputs");
+            inputs.innerHTML = '';
             for (i = 0; i < nInputs; i++) {
                 input = document.createElement("input");
                 input.type = "text";
                 input.id = "word" + i;
+                if (i == 0) {
+                    input.autofocus = true;
+                }
                 inputContainer.appendChild(input);
                 inputContainer.appendChild(document.createElement("br"));
-
-
             }
-            document.addEventListener('keyup', () => {
+
+            //add listener to update the figure array after every keystroke
+            inputContainer.addEventListener('keyup', (key) => {
                 for (i = 0; i < nInputs; i++) {
-                    figures[i + 2] = document.getElementById("word" + i).value;
+                    val = document.getElementById("word" + i).value;
+                    figures[i + 2] = val;
+                    checkForCmd(val);
                 }
+            });
+
+            //add listener to hide the inputs on mobile when screen tapped
+            document.getElementById("confetti").addEventListener('mousedown', () => {
+                inputContainer.classList.toggle("hidden");
             })
         }
 
-
-
-        function load(x) {
-            build(x);
-            animate();
+        //check inputs for strings of (#_letter_integer) where letter is the i or d charachter
+        //#i will change the animation interval
+        //#d will change the density of the animation
+        function checkForCmd(value) {
+            test = /#(d|i)(\d+)/.exec(value);
+            if (test) {
+                val = test[2];
+                switch (test[1]) {
+                    case "d":
+                        console.log("density" + val);
+                        density = val;
+                        break;
+                    case "i":
+                        console.log("interval" + val);
+                        interval = val;
+                        animate();
+                        break;
+                }
+            }
+            //if(/#\d+/.test(value));
         }
     </script>
 
@@ -103,7 +137,7 @@
 
 </head>
 
-<body onload="(load(5))">
+<body onload="(load())">
     <div id="inputs"></div>
     <div id="confetti"></div>
 
