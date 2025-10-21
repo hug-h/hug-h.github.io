@@ -16,6 +16,7 @@ body {
     color: black;
     font-size: 1rem;
     min-height: 50vh;
+    font-family: serif;
     /*was 100 but not surewhy*/
 
 }
