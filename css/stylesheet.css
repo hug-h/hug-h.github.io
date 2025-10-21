@@ -15,7 +15,8 @@ body {
     background: white;
     color: black;
     font-size: 1rem;
-    min-height: 50vh; /*was 100 but not surewhy*/
+    min-height: 50vh;
+    /*was 100 but not surewhy*/
 
 }
 
@@ -140,8 +141,9 @@ header>section {
     padding-right: 10vw;
     flex-direction: column;
     background: rgba(0, 0, 0, 0);
+
     section {
-        transition:  .4s ease-in-out;
+        transition: .4s ease-in-out;
     }
 
     .project {
@@ -255,6 +257,7 @@ header>section {
         :hover {
             color: blue;
             filter: blur(1px);
+
             .tableImg {
                 filter: brightness(5);
             }
@@ -264,6 +267,10 @@ header>section {
 
 
 @media only screen and (max-width: 1080px) {
+    #workDiv {
+        padding: 0;
+    }
+
     .tableImg {
         max-width: 1000px;
         width: 100%;

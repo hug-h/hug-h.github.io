@@ -33,6 +33,7 @@
 
         input {
             background-color: rgba(255, 255, 255, .5);
+            width: 33vw;
         }
 
         .hidden {
@@ -42,7 +43,7 @@
     <script>
         let density = 100;
         let interval = 100;
-        let numInputs = 3;
+        let numInputs = 1;
         let fontSize = 3;
         let confettiInterval;
 
@@ -83,7 +84,7 @@
             return Math.ceil(100 / fontSize);
         }
 
-        let figures = ['*', 'o', '.', '_', '?', ' ', ' ']
+        let figures = ['*', 'o', ' '];
 
         //build the site
 
@@ -104,10 +105,14 @@
 
             //add listener to update the figure array after every keystroke
             inputContainer.addEventListener('keyup', (key) => {
-                for (i = 0; i < nInputs; i++) {
-                    val = document.getElementById("word" + i).value;
-                    figures[i + 2] = val;
-                    checkForCmd(val);
+                for (i = 0; i < nInputs; i++) { // probably only gonna work on one array rn but that ok!
+                    string = document.getElementById("word" + i).value;
+                    words = string.split(' '); //   /([^\s]+)+/.exec(string);
+                    figures = [figures[0], figures[1], ' '];
+                    words.forEach(word => {
+                        figures.push(word);
+                    });
+                    checkForCmd(string);
                 }
             });
 
@@ -122,6 +127,7 @@
         //#d will change the density of the animation
         function checkForCmd(value) {
             test = /#(d|i|f|mode)(\d+)/.exec(value);
+            console.log(test) // testing !!
             if (test) {
                 val = test[2];
                 switch (test[1]) {
@@ -140,9 +146,10 @@
                         break;
                     case "mode":
                         console
-                        if (val == 1);
-                        window.location.href = 'singleInput.html';
+                        if (val == 0);
+                        window.location.href = 'index.html';
                         break;
+
                 }
             }
             if (/help/.test(value)) { info(); }
