@@ -1,5 +1,7 @@
+<!--some sort of visual patch, vanilla JS-->
+<!--Hugh Clery Ward 20/10/25-->
+<!--todo: instructions popover-->
 <!DOCTYPE html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>confetti</title>
@@ -36,8 +38,6 @@
             display: none;
         }
     </style>
-
-
     <script>
         let density = 100;
         let interval = 100;
@@ -50,7 +50,7 @@
         }
 
         function animate() {
-            if(confettiInterval){clearInterval(confettiInterval)};
+            if (confettiInterval) { clearInterval(confettiInterval) };
             confettiInterval = setInterval(animConfetti, interval);
         }
 
@@ -63,7 +63,7 @@
                 for (y = 0; y < Math.floor(Math.random() * density + 2); y++) {
                     bit = document.createElement("span")
                     bit.innerHTML = randFigure()
-                    if (Math.random() >.5) {
+                    if (Math.random() > .5) {
                         bit.style.color = "rgba(255,0,0, 0.8)";
                     }
                     line.appendChild(bit);
@@ -129,12 +129,21 @@
                         break;
                 }
             }
-            //if(/#\d+/.test(value));
+            if (/help/.test(value)) { info(); }
+        }
+
+        // tutorial mode
+        function info() {
+            figures[0] = "use #d100 to set density to 100";
+            figures[1] = "use #i20 to set interval to 20ms";
+            density = 3;
+            delay = setTimeout(() => { // delay this code so the text updates first
+                interval = 2000;
+                animate();
+            }, interval + 10);
+
         }
     </script>
-
-
-
 </head>
 
 <body onload="(load())">
