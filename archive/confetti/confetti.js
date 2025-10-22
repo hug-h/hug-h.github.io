@@ -3,6 +3,7 @@ let interval = 100;
 let numInputs = 3;
 let fontSize = 3;
 let confettiInterval;
+let mode = 1; // multi input mode
 
 function load(x) {
     if (x) { numInputs = x; }
@@ -42,15 +43,16 @@ function checkFontSize(targetDiv) {
     return Math.ceil(100 / fontSize);
 }
 
-let figures = ['*', 'o', '.', '_', '?', ' ', ' ']
+let figures = ['*', 'o', '.', ' ', ' ', ' ', ' ']
 
 //build the site
 
 function build(nInputs) {
     console.log(figures);
     inputContainer = document.getElementById("inputs");
-    inputs.innerHTML = '';
+    inputContainer.innerHTML = '';
     for (i = 0; i < nInputs; i++) {
+        console.log("tset")
         input = document.createElement("input");
         input.type = "text";
         input.id = "word" + i;
@@ -63,24 +65,49 @@ function build(nInputs) {
 
     //add listener to update the figure array after every keystroke
     inputContainer.addEventListener('keyup', (key) => {
-        for (i = 0; i < nInputs; i++) {
-            val = document.getElementById("word" + i).value;
-            figures[i + 2] = val;
-            checkForCmd(val);
-        }
+        updateFigures(mode);
     });
 
     //add listener to hide the inputs on mobile when screen tapped
     document.getElementById("confetti").addEventListener('mousedown', () => {
         inputContainer.classList.toggle("hidden");
     })
+
+    helpPop = document.getElementById("help");
+    helpPop.addEventListener('beforetoggle', (e) => {
+        if (e.newState == "closed") {
+            figures[0] = "*";
+            figures[1] = "o";
+        } else {
+            figures[0] = "use #d100 to set density to 100";
+            figures[1] = "use #i30 to set interval to 30ms";
+        }
+    })
+}
+
+function updateFigures(mode) {
+    if (mode > 0) {//if multi input mode
+        for (i = 0; i < numInputs; i++) {
+            val = document.getElementById("word" + i).value;
+            figures[i + 2] = val;
+            checkForCmd(val);
+        }
+    } else {//singleInputMode
+        string = document.getElementById("word0").value;
+        words = string.split(' '); //   /([^\s]+)+/.exec(string);
+        figures = [figures[0], figures[1], ' '];
+        words.forEach(word => {
+            figures.push(word);
+        });
+        checkForCmd(string);
+    }
 }
 
 //check inputs for strings of (#_letter_integer) where letter is the i or d charachter
 //#i will change the animation interval
 //#d will change the density of the animation
 function checkForCmd(value) {
-    test = /#(d|i|f|mode)(\d+)/.exec(value);
+    test = /#(\w|mode|reset)(\d+)/.exec(value);
     if (test) {
         val = test[2];
         switch (test[1]) {
@@ -98,33 +125,45 @@ function checkForCmd(value) {
                 fontSize = val;
                 break;
             case "mode":
-                console
-                if (val == 1);
-                window.location.href = 'singleInput.html';
+                changeMode(val);
                 break;
+            case "reset":
+                location.reload();
+            default:
+                console.log(`Invalid Command: #${test[1]}${test[2]}`)
         }
     }
-    if (/help/.test(value)) { info(); }
+    if (/^help/i.test(value)) { info(); } //trigger the help mode
 }
 
 // tutorial mode
 function info() {
-    figures[0] = "use #d100 to set density to 100";
-    figures[1] = "use #i20 to set interval to 20ms";
-    density = 3;
-    delay = setTimeout(() => { // delay this code so the text updates first
+    density = 10;
+    /*delay = setTimeout(() => { // delay this code so the text updates first
         interval = 2000;
         animate();
-    }, interval + 10);
-    [...document.getElementsByTagName("input")].forEach((e)=>{console.log(e.value='')});//clear the inputs !
+    }, interval + 10);*/ // not in use rn
+    [...document.getElementsByTagName("input")].forEach((e) => { e.value = '' });//clear the inputs !
     helpPopover(1);
 }
 
-function helpPopover(status){
-    div = document.getElementById("help")
-    if(status){
+function helpPopover(status) {
+    div = document.getElementById("help");
+    if (status) {
         div.showPopover();
-    }else{
-        div.hidePopover()
+    } else {
+        div.hidePopover();
     }
 }
+
+function changeMode(m) {
+    numInputs = m;
+    mode = m > 1;
+    console.log(`build${m}`);
+    build(m);
+    document.getElementById("word0").focus();
+}
+
+
+
+
