@@ -5,6 +5,9 @@ let fontSize = 3;
 let confettiInterval;
 let mode = 1; // multi input mode
 let helpDelay; //instructions timeout function, to be cancelled globally
+let preset1 = ['｡', '･', ':', '*', '˚', '✧'];
+let preset2 = ['Ƹ', 'Ӝ', 'Ʒ', 'ε', '/̵͇̿̿', '’̿’̿'];
+let figures = ['*', 'o', '.', ' ', ' ', ' ', ' ']
 
 function load(x) {
     if (x) { numInputs = x; }
@@ -44,8 +47,6 @@ function checkFontSize(targetDiv) {
     return Math.ceil(100 / fontSize);
 }
 
-let figures = ['*', 'o', '.', ' ', ' ', ' ', ' ']
-
 //build the site
 
 function build(nInputs) {
@@ -68,7 +69,7 @@ function build(nInputs) {
     //add listener to update the figure array after every keystroke
     inputContainer.addEventListener('keyup', (key) => {
         updateFigures(mode);
-        if(helpDelay){clearInterval(helpDelay);helpDelay=null;}// cancel the help timer on key up (only if it is active)
+        if (helpDelay) { clearInterval(helpDelay); helpDelay = null; }// cancel the help timer on key up (only if it is active)
     });
 
     //add listener to hide the inputs when screen tapped/clicked
@@ -129,6 +130,10 @@ function checkForCmd(value) {
                 console.log("fontSize" + val);
                 fontSize = val;
                 break;
+            case "p":
+                console.log("preset" + val);
+                preset(val);
+                break;
             case "mode":
                 changeMode(val);
                 break;
@@ -141,13 +146,46 @@ function checkForCmd(value) {
     if (/^help/i.test(value)) { info(); } //trigger the help mode
 }
 
+function inputFocus() {
+    focusDelay = setTimeout(() => { document.getElementById("word0").focus(); }, 1);
+}
+
+function changeMode(m) {
+    numInputs = m;
+    mode = m > 1;
+    console.log(`build${m}`);
+    build(m);
+    inputFocus();
+}
+
+function preset(x) {
+    switch (x) {
+        case 0.5://equiv of 0, hacky 
+            figures = ['*', 'o', '.', ' ', ' ', ' ', ' '];
+            break;
+        case 1:
+            figures = preset1;
+            break;
+        case 2:
+            figures = preset2;
+            break;
+        default:
+            figures = []; // empty the array
+            for(i=0;i<x*2;i++){figures[i]=String.fromCharCode(Math.floor(Math.random()*255));}
+            break;
+    }
+    console.log(figures);
+}
+
+
+
 // tutorial mode
 function info(delay) {
     if (delay) {
-       helpDelay = setTimeout(()=>{helpPopover(1)},delay); 
+        helpDelay = setTimeout(() => { helpPopover(1) }, delay);
     } else {
         //density = 10;
-        [...document.getElementsByTagName("input")].forEach((e) => { e.value = '' });//clear the inputs !
+        //[...document.getElementsByTagName("input")].forEach((e) => { e.value = '' });//clear the inputs ! maybe also unnessecary
         helpPopover(1);
     }
 }
@@ -160,17 +198,3 @@ function helpPopover(status) {
         div.hidePopover();
     }
 }
-
-function changeMode(m) {
-    numInputs = m;
-    mode = m > 1;
-    console.log(`build${m}`);
-    build(m);
-    inputFocus();
-}
-
-function inputFocus() {
-    focusDelay = setTimeout(() => { document.getElementById("word0").focus(); }, 1);
-}
-
-
