@@ -4,6 +4,7 @@ let numInputs = 3;
 let fontSize = 3;
 let confettiInterval;
 let mode = 1; // multi input mode
+let helpDelay; //instructions timeout function, to be cancelled globally
 
 function load(x) {
     if (x) { numInputs = x; }
@@ -51,13 +52,14 @@ function build(nInputs) {
     console.log(figures);
     inputContainer = document.getElementById("inputs");
     inputContainer.innerHTML = '';
+
     for (i = 0; i < nInputs; i++) {
-        console.log("tset")
         input = document.createElement("input");
         input.type = "text";
         input.id = "word" + i;
         if (i == 0) {
             input.autofocus = true;
+            if (nInputs == 1) { input.classList.toggle("big") }
         }
         inputContainer.appendChild(input);
         inputContainer.appendChild(document.createElement("br"));
@@ -66,23 +68,26 @@ function build(nInputs) {
     //add listener to update the figure array after every keystroke
     inputContainer.addEventListener('keyup', (key) => {
         updateFigures(mode);
+        if(helpDelay){clearInterval(helpDelay);helpDelay=null;}// cancel the help timer on key up (only if it is active)
     });
 
-    //add listener to hide the inputs on mobile when screen tapped
+    //add listener to hide the inputs when screen tapped/clicked
     document.getElementById("confetti").addEventListener('mousedown', () => {
-        inputContainer.classList.toggle("hidden");
+        if (!inputContainer.classList.toggle("hidden")) { inputFocus(); }; //toggle the input visibilty and focus on it when making visible
     })
 
     helpPop = document.getElementById("help");
-    helpPop.addEventListener('beforetoggle', (e) => {
+    /*helpPop.addEventListener('beforetoggle', (e) => { //switch the array content when help menu open, maybe getting rid of this ?
         if (e.newState == "closed") {
             figures[0] = "*";
             figures[1] = "o";
+            //inputFocus();
         } else {
             figures[0] = "use #d100 to set density to 100";
             figures[1] = "use #i30 to set interval to 30ms";
         }
-    })
+    })*/
+    info(4000);//display instructions after six seconds if no input
 }
 
 function updateFigures(mode) {
@@ -109,7 +114,7 @@ function updateFigures(mode) {
 function checkForCmd(value) {
     test = /#(\w|mode|reset)(\d+)/.exec(value);
     if (test) {
-        val = test[2];
+        val = Math.max(.5, test[2]);
         switch (test[1]) {
             case "d":
                 console.log("density" + val);
@@ -137,14 +142,14 @@ function checkForCmd(value) {
 }
 
 // tutorial mode
-function info() {
-    density = 10;
-    /*delay = setTimeout(() => { // delay this code so the text updates first
-        interval = 2000;
-        animate();
-    }, interval + 10);*/ // not in use rn
-    [...document.getElementsByTagName("input")].forEach((e) => { e.value = '' });//clear the inputs !
-    helpPopover(1);
+function info(delay) {
+    if (delay) {
+       helpDelay = setTimeout(()=>{helpPopover(1)},delay); 
+    } else {
+        //density = 10;
+        [...document.getElementsByTagName("input")].forEach((e) => { e.value = '' });//clear the inputs !
+        helpPopover(1);
+    }
 }
 
 function helpPopover(status) {
@@ -161,9 +166,11 @@ function changeMode(m) {
     mode = m > 1;
     console.log(`build${m}`);
     build(m);
-    document.getElementById("word0").focus();
+    inputFocus();
 }
 
-
+function inputFocus() {
+    focusDelay = setTimeout(() => { document.getElementById("word0").focus(); }, 1);
+}
 
 
