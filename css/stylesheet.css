@@ -247,6 +247,10 @@ header>section {
     }
 }
 
+#contact{
+    
+}
+
 @media only screen and (min-width: 1400px) {
     #workDiv {
         margin-left: 15vw;

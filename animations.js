@@ -100,7 +100,6 @@ function showFooter(){
 
 
 
-
 //-------------------------------------------------
 //function to add the name of a project onto the page
 

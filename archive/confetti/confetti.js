@@ -7,7 +7,7 @@ let mode = 1; // multi input mode
 let helpDelay; //instructions timeout function, to be cancelled globally
 let preset1 = ['｡', '･', ':', '*', '˚', '✧'];
 let preset2 = ['Ƹ', 'Ӝ', 'Ʒ', 'ε', '/̵͇̿̿', '’̿’̿'];
-let figures = ['*', 'o', '.', ' ', ' ', ' ', ' ']
+let figures = ['*', 'o', '.', ' ', ' ', ' ', ' '];
 
 function load(x) {
     if (x) { numInputs = x; }
@@ -176,8 +176,6 @@ function preset(x) {
     }
     console.log(figures);
 }
-
-
 
 // tutorial mode
 function info(delay) {
