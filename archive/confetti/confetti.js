@@ -8,6 +8,7 @@ let helpDelay; //instructions timeout function, to be cancelled globally
 let preset1 = ['｡', '･', ':', '*', '˚', '✧'];
 let preset2 = ['Ƹ', 'Ӝ', 'Ʒ', 'ε', '/̵͇̿̿', '’̿’̿'];
 let figures = ['*', 'o', '.', ' ', ' ', ' ', ' '];
+let c = [255, 0, 0];
 
 function load(x) {
     if (x) { numInputs = x; }
@@ -30,7 +31,7 @@ function animConfetti() {
             bit = document.createElement("span")
             bit.innerHTML = randFigure()
             if (Math.random() > .5) {
-                bit.style.color = "rgba(255,0,0, 0.8)";
+                bit.style.color = `rgba(${c[0]},${c[1]},${c[2]},.8)`;
             }
             line.appendChild(bit);
         }
@@ -113,7 +114,7 @@ function updateFigures(mode) {
 //#i will change the animation interval
 //#d will change the density of the animation
 function checkForCmd(value) {
-    test = /#(\w|mode|reset)(\d+)/.exec(value);
+    test = /#(\w|rgb|mode|reset)(\d+)/.exec(value);
     if (test) {
         val = Math.max(.5, test[2]);
         switch (test[1]) {
@@ -133,6 +134,14 @@ function checkForCmd(value) {
             case "p":
                 console.log("preset" + val);
                 preset(val);
+                break;
+            case "rgb":
+                console.log(val);
+                v = /(\d)?(\d)?(\d)?/.exec(val); // gotta change this so when the val is only 2 dig long then an initial 0 is inferred 
+                if(v){
+                    console.log(v);
+                    c=[v[1]*255/9,v[2]*255/9,v[3]*255/9];
+                }
                 break;
             case "mode":
                 changeMode(val);
@@ -171,7 +180,7 @@ function preset(x) {
             break;
         default:
             figures = []; // empty the array
-            for(i=0;i<x*2;i++){figures[i]=String.fromCharCode(Math.floor(Math.random()*255));}
+            for (i = 0; i < x * 2; i++) { figures[i] = String.fromCharCode(Math.floor(Math.random() * 255)); }
             break;
     }
     console.log(figures);

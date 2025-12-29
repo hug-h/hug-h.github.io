@@ -1,0 +1,142 @@
+<!--some sort of visual patch, vanilla JS-->
+<!--Hugh Clery Ward 20/10/25-->
+<!--todo: instructions popover, colour editing-->
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>confetti</title>
+
+    <style>
+        #confetti {
+            width: 100%;
+            height: 100%;
+            font-family: serif;
+            z-index: -1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            color: black;
+            filter: blur(1px);
+            font-size: 2vh;
+
+            div {
+                width: 100%;
+                text-align: center;
+                justify-content: space-between;
+                font-size: inherit;
+                line-height: 1em;
+                display: flex;
+                padding: 0;
+            }
+        }
+
+        #help { /*styling for the help popover*/
+            font-family: Arial, Helvetica, sans-serif;
+            border-color: rgba(255, 0, 0, 0.8);
+            max-width: 90vw;
+            margin: auto;
+
+            >div { /*only for the top level div inside #help */
+                padding: 1vw;
+            }
+
+            h1 {
+                text-align: center;
+                margin: 0;
+            }
+
+            p,h4{
+                margin-bottom: 0;
+            }
+
+            #exampleCode {
+                margin-left: 1vw;
+            }
+
+            span {
+                line-height: 2em;
+            }
+            transition: 1s ease-in-out;
+        }
+
+        input {
+            background-color: rgba(255, 255, 255, .5);
+        }
+
+        /*toggelable classes*/
+        .big {
+            width: 33vw;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /*rules*/
+        @media only screen and (max-width: 900px) {
+            :root {
+                font-size: 12px;
+            }
+            .nonMobile{
+                display: none;
+            }
+        }
+
+
+        :popover-open{
+            opacity: 1;
+            @starting-style {
+                opacity: 0;
+            }
+        }
+
+    </style>
+    <script src="confetti.js"></script>
+    
+    <script> //scripts for the embedded version
+            
+            changeMode(0);
+           function getParams() {
+                var idx = document.URL.indexOf('?');
+                var params = new Array();
+                if (idx != -1) {
+                var params = document.URL.substring(idx+1, document.URL.length).split('_');
+                }
+                return params;
+            }
+            function urlParams(){
+                params = getParams();
+                console.log(params);
+                figures = params;
+            }
+    </script>
+</head>
+
+<body onload="load(); urlParams()">
+    <div id="inputs"></div>
+    <div id="confetti" class="gooey" onfocus="console.log('aaa')"></div>
+    <!--div popover id="help">
+        <div>
+            <h1>Confetti Instructions</h1>
+            <h4>Type into the input boxes to see your text scattered across the screen</h4>
+            <h4>Tap anywhere outside of the inputs to hide them</h4>
+            <h4>Use commands to change the way text is displayed:</h4>
+            <p>Commands must start with <code>#</code> and be followed by a letter and an integer</p>
+            <p><i>for example</i>:</p>
+            <div id="exampleCode">
+                <span><code>#d100</code> will change the density of the confetti to 100</span><br>
+                <span><code>#i30</code> will change the interval of the animation to 30ms (lower values are
+                    faster)</span><br>
+                <span><code>#f10</code> will change the font size to 10% of the viewport height</span><br>
+                <span><code>#mode1</code> will change to single input mode</span><br>
+                <span><code>#mode5</code> will create five inputs</span><br>
+            </div>
+            <p>In single input mode, words in a string are seperated and scattered across the screen</p>
+            <p>In multiple input mode, each input remains together while being scattered</p>
+            <p class="nonMobile">Use TAB and SHIFT+TAB keys to cycle between inputs</p>
+            <p style="text-align: center;">✧. ｡･:*˚:✧*✧･ﾟ: *✧･ﾟ:｡ ⁭</p>
+        </div>
+    </div-->
+
+</body>
