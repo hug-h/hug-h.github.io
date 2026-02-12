@@ -1,0 +1,30 @@
+<head>
+    <title>testFilter</title>
+    <style>
+        body{
+            background: blue;
+            zoom: 300%;
+        }
+        h1,h2{
+            text-shadow: 2px 2px yellow, -1px -1px  white; /*change the colors*/
+            filter: blur(1px) contrast(100000%); /*try changing the blur amount 1px is safe but more is funny*/
+        }
+        h2{
+            color: red;
+            text-decoration: underline;
+        }
+        p{
+            filter: blur(0.5px) contrast(100000%);; /*less blur for smaller text*/
+            color: white;
+            text-shadow: 1px 1px black, -1px -1px  black; /*change the colors*/
+        }
+    </style>
+</head>
+<body>
+    <h1>HELLO MARK</h1>
+    <p>test page for the filter</p>
+    <h2>more text</h2>
+    <article>
+        here is text with no filter...
+    </article>
+</body>
