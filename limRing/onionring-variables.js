@@ -8,14 +8,16 @@
 //the full URLs of all the sites in the ring
 var sites = [
 'https://hug-h.github.io',
-'https://https://lmfao061.com',
+'https://lmfao061.com',
 'https://trecol.neocities.org/',
 'https://paddydelany.com/',
 'https://doireann.neocities.org/',
+'https://caiminwalsh.squarespace.com/',
+'https://sioda.ie/'
 ];
 
 //the name of the ring
-var ringName = 'LIMERICK1MILLION';
+var ringName = 'Limerick Adjacent Online Network Of WebUsers';
 
 /* the unique ID of the widget. two things to note:
  1) make sure there are no spaces in it - use dashes or underscores if you must
@@ -23,9 +25,9 @@ var ringName = 'LIMERICK1MILLION';
 var ringID = 'limring';
 
 //should the widget include a link to an index page?
-var useIndex = false;
+var useIndex = true;
 //the full URL of the index page. if you're not using one, you don't have to specify anything here
-var indexPage = 'https://example.com/index.html';
+var indexPage = 'https://hug-h.github.io/limRing/';
 
 //should the widget include a random button?
 var useRandom = true;
