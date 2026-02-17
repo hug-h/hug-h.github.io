@@ -6,6 +6,13 @@ h2 {
     margin: 0.1vh;
 }
 
+header h1 { /*to make the h1 in the header look like normal paragraph*/
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    margin: inherit;
+}
+
 body {
     margin-top: 4px;
     margin-left: 0;
@@ -22,12 +29,9 @@ body {
     flex-direction: column;
     height: 99vh;
     justify-content: space-between;
-
-    /*was 100 but not surewhy*/
-
 }
 
-main{
+main {
     flex-grow: 2;
 }
 
@@ -335,14 +339,10 @@ header>section {
     background-color: rgba(0, 0, 0, 0);
 }
 
-
-
 ::backdrop {
     transition: 3s;
-    backdrop-filter:blur(1.5px) brightness(0.9) contrast(3);
+    backdrop-filter: blur(1.5px) brightness(0.9) contrast(3);
 }
-
-
 
 
 footer {
