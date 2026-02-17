@@ -1,6 +1,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LimRing</title>
+    <script type="text/javascript" src="https://hug-h.github.io/limRing/onionring-variables.js"></script>
+    <script type="text/javascript" src="https://hug-h.github.io/limRing/onionring-widget.js"></script>
     <style>
         body {
             padding: 0;
@@ -91,7 +93,10 @@
             <script type="text/javascript" src="/limRing/onionring-index.js"></script>
         </div>
         <hr>
-        <button popovertarget="info"><small>more Info</small></button>
+        <span style="display:flex; justify-content: space-around;">
+            <button popovertarget="info"><small>more Info</small></button>
+            <button onclick="randomSite()"><small>random page</small></button>
+        </span>
     </section>
 
     <div id="info" popover>
@@ -101,8 +106,12 @@
                 
             </p>
             <a href="https://en.wikipedia.org/wiki/Limerick">limerick wikipedia</a></p>
+            <br>
             <h3>credits:</h3>
-            <p> <a href="assets/SWIRLGreen.gif">swirl image</a> taken from the <a
-                    href="https://limerickdioceseheritage.org/">limerick diocese heritage</a> page</p>
+            <p> 
+                <a href="assets/SWIRLGreen.gif">swirl image</a> taken from the 
+                <a href="https://limerickdioceseheritage.org/">limerick diocese heritage</a> page
+                <br>Title font: <a href="https://velvetyne.fr/fonts/avara/">Avara</a> from <a href="https://velvetyne.fr/about/">velvetyne.fr</a> 
+            </p>
     </div>
 </body>
