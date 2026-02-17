@@ -8,8 +8,9 @@ h2 {
 
 body {
     margin-top: 4px;
-    margin-left: 0%;
-    margin-right: 0%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
     padding: 4px;
     padding-top: 0%;
     background: white;
@@ -17,8 +18,17 @@ body {
     font-size: 1rem;
     min-height: 50vh;
     font-family: serif;
+    display: flex;
+    flex-direction: column;
+    height: 99vh;
+    justify-content: space-between;
+
     /*was 100 but not surewhy*/
 
+}
+
+main{
+    flex-grow: 2;
 }
 
 ::selection {
