@@ -6,14 +6,14 @@
 /* this file affects the style of the widget. remember to replace all instances of #webringid with whatever value you have for ringID in the onionring-widget.js file. make sure it still has the # at the front, though! probably easiest to use find+replace to do it */
 
 #limring {
+  padding-right: 5px; /* creates some space around the widget */
+  padding-bottom: 5px;
+  margin: 0 auto;
   color: inherit;
   a{
     color: inherit;
     text-decoration: none;
   }
-  margin: 0 auto;
-  padding-right: 5px; /* creates some space around the widget */
-  padding-bottom: 5px;
 }
 
 #limring table {
