@@ -36,6 +36,9 @@ body {
         #info {
             padding: 1em;
             background-color: blanchedalmond;
+            background-image: url('assets/SWIRLGreen.gif');
+            background-repeat:no-repeat;
+            background-position: center;
         }
 
         button {
