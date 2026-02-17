@@ -51,21 +51,21 @@ else {
   randomText = ""
   //if you've chosen to include a random button, this builds the link that does that
   if (useRandom) {
-    randomText = `<a href='javascript:void(0)' onclick='randomSite()'>random</a> | `;
+    randomText = `<a href='javascript:void(0)' onclick='randomSite()'>✶</a>`;
   }
 
   //this is the code that displays the widget - EDIT THIS if you want to change the structure
   tag.insertAdjacentHTML('afterbegin', `
   <table>
     <tr>
-      <td class='webring-prev'><a href='${sites[previousIndex]}'>← previous</a></td>
-      <td class='webring-info'>This site is part of the <i>${ringName}</i> webring!</br>
-      <span class='webring-links'>
-        ${randomText}
-        ${indexText}
-        <!--a href='https://garlic.garden/onionring/'>what is this?</a--></span></td>
-      <td class='webring-next'><a href='${sites[nextIndex]}'>next →</a></td>
+      <td rowspan="2" class='webring-info'><a href='${indexPage}'><i>${ringName}</i></a></td>        
+      <td class='webring-prev'><a href='${sites[previousIndex]}'>←</a></td>  
+      <td rowspan="2"><span class='webring-links'>${randomText}</span></td>      
     </tr>
+    <tr>
+      <td class='webring-next'><a href='${sites[nextIndex]}'>→</a></td>
+    </tr>
+
   </table>
   `);
 
