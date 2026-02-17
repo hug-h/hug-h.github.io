@@ -13,6 +13,7 @@
 #limring table {
   background-color: #ffffff; /* makes the background pure white */
   margin: 0 auto; /* centers the widget */
+  min-width: 350px;
 }
 
 #limring table tr td {

@@ -13,7 +13,8 @@ var sites = [
 'https://paddydelany.com/',
 'https://doireann.neocities.org/',
 'https://caiminwalsh.squarespace.com/',
-'https://sioda.ie/'
+'https://sioda.ie/',
+'http://127.0.0.1:5500/'
 ];
 
 //the name of the ring

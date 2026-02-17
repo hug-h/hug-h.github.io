@@ -5,9 +5,10 @@
         body {
             padding: 0;
             margin: 0;
+            height: 100%;
             font-family: 'Times New Roman', Times, serif;
             background-color: black;
-            background-image:url('assets/SWIRLGreen.gif');
+            background-image: url('assets/SWIRLGreen.gif');
             display: flex;
         }
 
@@ -26,24 +27,36 @@
             padding-bottom: 4vh;
         }
 
-        ul{
+        ul {
             list-style-type: ascii-custom;
         }
 
         section a {
             color: white;
             font-weight: bold;
-            text-decoration:none; 
+            text-decoration: none;
         }
 
-        #info{
+        #info {
             padding: 1em;
             background-color: blanchedalmond;
         }
 
+        button {
+            border-radius: 2px;
+
+        }
+
+        @media only screen and (max-width: 600px) {
+            body{
+                background-image: none;
+                background-color: coral;
+            }
+        }
+
         @counter-style ascii-custom {
             system: cyclic;
-            symbols:  ☆ ✦ ✶ ✫ 𓇼 ✵ ✪ ★  ✴ 🟇;
+            symbols: ☆ ✦ ✶ ✫ 𓇼 ✵ ✪ ★ ✴ 🟇;
             suffix: " ";
         }
 
@@ -65,7 +78,8 @@
     <section>
         <h1>Limerick<br>Adjacent<br> Online<br> Network<br> Of <br>WebUsers</h1>
         <p>
-            This is the index page for the <strong>Limerick Adjacent Online Network Of WebUsers</strong> or <i>LimRing</i>
+            This is the index page for the <strong>Limerick Adjacent Online Network Of WebUsers</strong> or
+            <i>LimRing</i>
         </p>
         <p>
             It is a web-ring for people adjacent to limerick music or art related things
@@ -79,13 +93,16 @@
         <hr>
         <button popovertarget="info"><small>more Info</small></button>
     </section>
-    
+
     <div id="info" popover>
         <h2>more info:</h3>
-        <p>web-ring made using <a href="https://garlic.garden/onionring/">onionring</a>
-        <br>maintained by <a href="https://hug-h.github.io/">hugh</a></p>
-        
-        <h3>credits:</h3>
-        <p> <a href="assets/SWIRLGreen.gif">swirl image</a> taken from the <a href="https://limerickdioceseheritage.org/">limerick diocese heritage</a> page</p>
+            <p>web-ring made using <a href="https://garlic.garden/onionring/">onionring</a>
+                <br>maintained by <a href="https://hug-h.github.io/">hugh</a>
+                
+            </p>
+            <a href="https://en.wikipedia.org/wiki/Limerick">limerick wikipedia</a></p>
+            <h3>credits:</h3>
+            <p> <a href="assets/SWIRLGreen.gif">swirl image</a> taken from the <a
+                    href="https://limerickdioceseheritage.org/">limerick diocese heritage</a> page</p>
     </div>
 </body>
