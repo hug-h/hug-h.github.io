@@ -13,7 +13,7 @@ var sites = [
 'https://paddydelany.com/',
 'https://doireann.neocities.org/',
 'https://sioda.ie/',
-'https://www.johnny-mcmahon.com/'
+'https://johnnymcmahon.neocities.org/'
 
 
 //'https://caiminwalsh.squarespace.com/'
