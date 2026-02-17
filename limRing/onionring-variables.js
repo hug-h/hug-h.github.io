@@ -12,8 +12,10 @@ var sites = [
 'https://trecol.neocities.org/',
 'https://paddydelany.com/',
 'https://doireann.neocities.org/',
-'https://caiminwalsh.squarespace.com/',
 'https://sioda.ie/'
+
+//'https://caiminwalsh.squarespace.com/'
+
 ];
 
 //the name of the ring
