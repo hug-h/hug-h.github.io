@@ -36,13 +36,20 @@
     //redirects
 
     errors = [
-        {"address":"limRing", "typos":["limring","limmering","LIMRING","webring"]},
-        {"address":"work", "typos":["Work","WORK"]},
-        {"address":"index.html", "typos":["HOME","home"]}
+        {"address":"limRing", "typos":["limring","limmering","webring","ring"]},
+        {"address":"work", "typos":["WORK","werk"]},
+        {"address":"index.html", "typos":["HOME","bio","about"]},
+        {"address":"work/buchla.html", "typos":["BUCHLA","250e"]},
+        {"address":"work/web.html", "typos":["WEB","misc"]},
+        {"address":"archive/p/", "typos":["PADDY","delany"]}
     ]
+
+
     path = window.location.pathname;
+    path = path.toLowerCase();
     errors.forEach((error)=>{
         error.typos.forEach((mistake)=>{
+            mistake = mistake.toLowerCase();
             console.log("testing:" + path + " typo " + mistake);
             if(path=="/"+mistake){
                 console.log("REDIRECT TO: " + error.address);
