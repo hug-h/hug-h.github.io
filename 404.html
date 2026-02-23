@@ -34,8 +34,26 @@
 
 <script>
     //redirects
-    href = window.location;
-    console.log(href);
+
+    errors = [
+        {"address":"limRing", "typos":["limring","limmering","LIMRING","webring"]},
+        {"address":"work", "typos":["Work","WORK"]},
+        {"address":"index.html", "typos":["HOME","home"]}
+    ]
+    path = window.location.pathname;
+    errors.forEach((error)=>{
+        error.typos.forEach((mistake)=>{
+            console.log("testing:" + path + " typo " + mistake);
+            if(path=="/"+mistake){
+                console.log("REDIRECT TO: " + error.address);
+                window.location=error.address;
+            }
+            
+        })
+    })
+
+    
+    ;
 </script>
 
 
