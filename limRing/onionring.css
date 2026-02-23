@@ -15,7 +15,9 @@
     text-decoration: none;
   }
   display: flex;
-  zoom: 1;
+  >*{
+    zoom: 1;
+  }
 }
 
 #limring table {
