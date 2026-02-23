@@ -32,11 +32,9 @@
     setInterval(animateSeparator, 3000);
 </script>
 
-<script>
-    //redirects
-
-    errors = [
-        {"address":"limRing", "typos":["limring","limmering","webring","ring"]},
+<script>//redirects    also functions as url shorteners
+    redirects = [
+        {"address":"limRing", "typos":["limring","limmering","webring","ring","lring"]},
         {"address":"work", "typos":["WORK","werk"]},
         {"address":"index.html", "typos":["HOME","bio","about"]},
         {"address":"work/buchla.html", "typos":["BUCHLA","250e"]},
@@ -44,23 +42,19 @@
         {"address":"archive/p/", "typos":["PADDY","delany"]}
     ]
 
-
     path = window.location.pathname;
     path = path.toLowerCase();
-    errors.forEach((error)=>{
+
+    redirects.forEach((error)=>{
         error.typos.forEach((mistake)=>{
             mistake = mistake.toLowerCase();
             console.log("testing:" + path + " typo " + mistake);
             if(path=="/"+mistake){
                 console.log("REDIRECT TO: " + error.address);
                 window.location=error.address;
-            }
-            
+            } 
         })
-    })
-
-    
-    ;
+    });
 </script>
 
 
