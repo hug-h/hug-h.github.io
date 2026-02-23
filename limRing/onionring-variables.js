@@ -7,16 +7,13 @@
 
 //the full URLs of all the sites in the ring
 var sites = [
-'https://hug-h.github.io',
-'https://lmfao061.com',
+'https://hug-h.github.io/',
+'https://lmfao061.com/',
 'https://trecol.neocities.org/',
-'https://paddydelany.com/',
+'https://paddydelany.com/5/',
 'https://doireann.neocities.org/',
 'https://sioda.ie/',
 'https://johnnymcmahon.neocities.org/'
-
-
-//'https://caiminwalsh.squarespace.com/'
 ];
 
 //the name of the ring

@@ -6,11 +6,14 @@
 //this file builds the list of sites in the ring for displaying on your index page
 
 var tag = document.getElementById('index');
-regex = /^https:\/\/|\/$/g; //strips the https:// and trailing slash off the urls for aesthetic purposes
+//regex =    /^https:\/\/|\/$/g; //strips the https:// and trailing slash off the urls for aesthetic purposes // 
+regex =  /\/\/(.+?)\//;
 
 list = "";
 for (i = 0; i < sites.length; i++) {
-  list += `<li><a href='${sites[i]}'>${sites[i].replace(regex, "")}</a></li>`;
+  cleanName = regex.exec(sites[i])[1];
+  //list += `<li><a href='${sites[i]}'>${sites[i].replace(regex, "")}</a></li>`;
+  list += `<li><a href='${sites[i]}'>${cleanName}</a></li>`;
 }
 
 tag.insertAdjacentHTML('afterbegin', `
@@ -18,3 +21,6 @@ tag.insertAdjacentHTML('afterbegin', `
 ${list}
 </ul>
 `);
+
+
+//changed the regex to allow for subpages
