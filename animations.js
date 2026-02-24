@@ -85,12 +85,15 @@ function showVideo(){
 }
 
 function showFooter(){
-    elements = document.getElementsByTagName("footer");; //shows the footer element when called, elements should only ever be one element but need to be an array 
+    maxOffset = 68;
+    if(window.innerWidth<600){maxOffset=35;} //less footer offset on narrow screens
+
+    elements = document.getElementsByTagName("footer"); //shows the footer element when called, elements should only ever be one element but need to be an array 
     elements = [...elements];
     if(elements){
         elements.forEach(function show(elem){
             elem.classList.add("show");
-            elem.children[0].style.paddingLeft = Math.floor(Math.random() * 68)+"vw";
+            elem.children[0].style.paddingLeft = Math.floor(Math.random() * maxOffset)+"vw";
         })
     }
 }
