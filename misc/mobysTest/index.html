@@ -1,0 +1,79 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <title>moby's bar</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        h2 {
+            font-size: 1rem;
+        }
+
+        .menuContainer {
+            padding-left: 10vw;
+        }
+        .menu{
+            width: fit-content;
+        }
+
+        .drinkRecipe {
+            h5 {
+                font-style: italic;
+                font-size: 1rem;
+                margin-bottom: 0;
+            }
+
+            p {
+                text-indent: 1em;
+            }
+        }
+
+        img {
+            margin-top: auto;
+        }
+        .content,.img{
+            flex-grow: .3;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="align-self: end; font-size: 5rem; filter: blur(2px);">
+        &#129481;
+    </div>
+    <div class="content">
+        <h1>Moby's</h1>
+        <h2>drinks for you to enjoy</h2>
+        <div class="menuContainer">
+            <!--h3>menus</h3-->
+            <article class="menu">
+                <h4>Crone @ Ormston House w/ Starling</h4>
+                <span>07/03/26</span>
+                <hr>
+                <div class="drinkRecipe">
+                    <h5>Orange Juice</h5>
+                    <p>juice of orange, Ice Cube</p>
+                    <p>notes of citrus, refreshing</p>
+                </div>
+                <div class="drinkRecipe">
+                    <h5>Can of Beer</h5>
+                    <p>fermented barley and wheat or something</p>
+                    <p>refreshingly effervescent and often full of gluten</p>
+                </div>
+                <div class="drinkRecipe">
+                    <h5>Pre workout drink</h5>
+                    <p>caffiene and sugar and some crazy chemicals</p>
+                    <p>not refreshing but adds an edge to your day</p>
+                </div>
+            </article>
+        </div>
+    </div>
+    <div class="img" style="align-self: center;">
+        <img src="mobys.png">
+    </div>
+
+</body>
