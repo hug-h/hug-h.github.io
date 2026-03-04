@@ -3,10 +3,23 @@
     <meta charset="UTF-8">
     <title>moby's bar</title>
     <style>
+        @font-face {
+            font-family: scDream;
+            src: url(S-CoreDream-4Regular.woff);
+        }
+
+
         body {
+            /*font-family: scDream, Arial, Helvetica, sans-serif;*/
+            font-family: 'Courier New', Courier, monospace;
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
+            font-size: small;
+        }
+
+        header {
+            padding-bottom: 3vh;
         }
 
         h2 {
@@ -16,7 +29,8 @@
         .menuContainer {
             padding-left: 10vw;
         }
-        .menu{
+
+        .menu {
             width: fit-content;
         }
 
@@ -35,19 +49,24 @@
         img {
             margin-top: auto;
         }
-        .content,.img{
+
+        .content,
+        .img {
             flex-grow: .3;
+        }
+        .img{
+            padding: 2rem;
         }
     </style>
 </head>
 
 <body>
-    <div style="align-self: end; font-size: 5rem; filter: blur(2px);">
-        &#129481;
-    </div>
+
     <div class="content">
-        <h1>Moby's</h1>
-        <h2>drinks for you to enjoy</h2>
+        <header>
+            <h1>Moby's</h1>
+            <h2>drinks for you to enjoy</h2>
+        </header>
         <div class="menuContainer">
             <!--h3>menus</h3-->
             <article class="menu">
@@ -72,8 +91,8 @@
             </article>
         </div>
     </div>
+    <div style="align-self: end; font-size: 3rem; filter: drop-shadow( 3px 1px 2px #a0a0a0);">&#129481;</div>
     <div class="img" style="align-self: center;">
         <img src="mobys.png">
     </div>
-
 </body>
