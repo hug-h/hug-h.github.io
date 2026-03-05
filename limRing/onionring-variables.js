@@ -13,7 +13,8 @@ var sites = [
 'https://paddydelany.com/5/',
 'https://doireann.neocities.org/',
 'https://sioda.ie/',
-'https://johnnymcmahon.neocities.org/'
+'https://johnnymcmahon.neocities.org/',
+'https://arwenduggan.neocities.org/'
 ];
 
 //the name of the ring
