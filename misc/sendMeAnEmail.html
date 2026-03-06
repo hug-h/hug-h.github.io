@@ -9,6 +9,27 @@
     <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
     <script src="/animations.js"></script>
     <link rel="shortcut icon" href="/images/favicon.png" />
+    <style>
+        body{
+            max-height: 99vh;
+        }
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            p{
+                font-size: 15vh;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            main p {
+                font-size: 10vh;
+                writing-mode: vertical-lr;
+                padding: 2vw;
+            }
+        }
+    </style>
 </head>
 
 <body onload="load(); extension(); randFrames()">
@@ -34,8 +55,9 @@
             </div>
         </section>
     </header>
-    <main style="display: flex; align-items: center; justify-content: center;">
-    <p style="font-size: 15vh;"><a id="contact" onclick="{this.innerHTML='hughcw0 [at] gmail [dot] com'}">contact:</a></p>
+    <main>
+        <p><a id="contact"
+                onclick="{this.innerHTML='hughcw0 [at] gmail [dot] com'}">contact:</a></p>
     </main>
     <footer>
         <table class="selector">
