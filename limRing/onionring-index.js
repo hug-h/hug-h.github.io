@@ -6,6 +6,7 @@
 //this file builds the list of sites in the ring for displaying on your index page
 
 var tag = document.getElementById('index');
+var counter = document.getElementById('memberCounter');
 //regex =    /^https:\/\/|\/$/g; //strips the https:// and trailing slash off the urls for aesthetic purposes // 
 regex =  /\/\/(.+?)\//;
 
@@ -22,5 +23,8 @@ ${list}
 </ul>
 `);
 
+counter.innerHTML = `the LimRing has ${sites.length} members`
+
 
 //changed the regex to allow for subpages
+//added counter readout
