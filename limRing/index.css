@@ -36,6 +36,7 @@ section a {
     color: #ECF2EC;
     font-weight: bold;
     text-decoration: none;
+    min-height: 500px;
 }
 
 #info,
@@ -58,7 +59,7 @@ section a {
     right: anchor(right);
     top: anchor(top);
     writing-mode: vertical-lr;
-    color: #ECF2EC;
+    color:#ECF2EC;
     animation: 3.5s infinite alternate ease-in-out wowAnim;
 }
 

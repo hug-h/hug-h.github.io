@@ -34,3 +34,4 @@ var indexPage = 'https://hug-h.github.io/limRing/';
 
 //should the widget include a random button?
 var useRandom = true;
+var indexShuffle = true;
