@@ -16,7 +16,7 @@ var sites = [
 'https://johnnymcmahon.neocities.org/',
 'https://arwenduggan.neocities.org/',
 'https://mobys.neocities.org/',
-'https://michealkeating.xyz',
+'https://michealkeating.xyz'
 ];
 
 //the name of the ring
