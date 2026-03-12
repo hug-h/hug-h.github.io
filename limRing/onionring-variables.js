@@ -15,7 +15,8 @@ var sites = [
 'https://sioda.ie/',
 'https://johnnymcmahon.neocities.org/',
 'https://arwenduggan.neocities.org/',
-'https://mobys.neocities.org/'
+'https://mobys.neocities.org/',
+'https://michealkeating.xyz',
 ];
 
 //the name of the ring

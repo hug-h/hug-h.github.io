@@ -1,0 +1,20 @@
+<!--Redirects to random page for squarespace sites that dont allow js or something idk-->
+<!--you can link to this file, and include your own domain in the hash, and it will work the same as the random function-->
+<head>
+    <script type="text/javascript" src="https://hug-h.github.io/limRing/onionring-variables.js"></script>
+    <script type="text/javascript" src="https://hug-h.github.io/limRing/onionring-widget.js"></script>
+    <script>
+        avoid = window.location.hash;
+        thisSite = `https://${avoid.replace("#","")}/`;
+        thisIndex = null;
+
+        // go through the site list to see if this site is on it and find its position
+        for (i = 0; i < sites.length; i++) {
+            if (thisSite.startsWith(sites[i])) { //we use startswith so this will match any subdirectory, users can put the widget on multiple pages
+                thisIndex = i;
+                break; //when we've found the site, we don't need to search any more, so stop the loop
+            }
+        }
+        randomSite();
+    </script>
+</head>

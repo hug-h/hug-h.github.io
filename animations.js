@@ -86,7 +86,7 @@ function showVideo(){
 
 function showFooter(){
     maxOffset = 68;
-    if(window.innerWidth<600){maxOffset=35;} //less footer offset on narrow screens
+    if(window.innerWidth<600){maxOffset=28;} //less footer offset on narrow screens
 
     elements = document.getElementsByTagName("footer"); //shows the footer element when called, elements should only ever be one element but need to be an array 
     elements = [...elements];
