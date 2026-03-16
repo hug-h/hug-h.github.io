@@ -1,0 +1,63 @@
+ body,
+ img {
+     width: 400px;
+     margin: 0;
+ }
+
+ body {
+     font-family: serif;
+     margin-left: 1vw;
+ }
+
+ .date {
+     text-align: end;
+ }
+
+ img {
+     height: auto;
+ }
+
+ img,
+ p {
+     margin-top: 1vh;
+ }
+
+ article {
+     max-height: 97vh;
+     column-width: 400px;
+     column-gap: 5vw;
+     margin-top: 2em;
+     margin-bottom: 2em;
+     scroll-margin-top: 2em;
+
+     /*scroll-snap-align: start;*/
+     hr {
+         margin-top: -2em;
+         /*ensures the first column sits higher than the following ones*/
+     }
+ }
+
+ #index {
+     position: fixed;
+     top: 0;
+     right: 0;
+     width: 20vw;
+     max-height: 80vh;
+     overflow-y: scroll;
+     scrollbar-width: none;
+     z-index: -10;
+     border-width: 1px;
+     border-spacing: 0.5em;
+     color: black;
+
+     td,
+     tr {
+         vertical-align: top;
+
+         a {
+             color: inherit;
+             text-decoration: none;
+         }
+     }
+
+ }
