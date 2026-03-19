@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The limRing index page! A webring for friends appreciative of and adjacent to Limerick City, the place to be!">
+    <meta name="description"
+        content="The limRing index page! A webring for friends appreciative of and adjacent to Limerick City, the place to be!">
     <meta name="keywords"
         content="limerick ,limring ,webring ,art ,music ,performance, photos, writing, code, art, gallery, personal web, neocities, github">
     <title>LimRing</title>
@@ -11,73 +13,92 @@
     <script type="text/javascript" src="https://hug-h.github.io/limRing/onionring-widget.js"></script>
     <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="shortcut icon" href="assets/favicon.png" />
+    <script>
+        let titleWords;
+        function animInit() {
+            titleWords = [...document.getElementsByTagName("h1")[0].children];
+            titleWords.forEach((e, index) => { e.style.viewTransitionName = `h1_${e.innerHTML}`; e.style.order = index; })
+        }
+        function moveAllTitle() {
+            document.startViewTransition(() => {
+                titleWords.forEach((e) => {
+                    e.style.order = Math.floor(Math.random() * 10);
+                })
+            })
+        }
+    </script>
 </head>
 
-<body>
+<body onload="animInit()">
     <section>
-        <h1>Limerick<br>Adjacent<br> Online<br> Network<br> Of <br>WebUsers</h1>
+        <h1 onclick="moveAllTitle()" ><span>Limerick</span><span>Adjacent</span><span>Online</span><span>Network</span><span>Of</span><span>WebUsers</span>
+        </h1>
         <container>
             <p>
-            This is the index page for the <strong>Limerick Adjacent Online Network Of WebUsers</strong> or
-            <i>LimRing</i>
-        </p>
-        <p>
-            It is a web-ring for people adjacent to limerick music or art related things
-            <br><strong>This page and the limRing are still under construction!</strong>
-        </p>
-        <hr>
-        <div id="memberCounter"></div>
-        <!--List shuffes on load!-->
-        <div id='index'>
-            <script type="text/javascript" src="/limRing/onionring-variables.js"></script>
-            <script type="text/javascript" src="/limRing/onionring-index.js"></script>
-        </div>
-        <hr>
-        <span style="display:flex; justify-content: space-around;">
-            <button popovertarget="info">more info</button>
-            <button popovertarget="resources">resources</button>
-            <button onclick="randomSite()">random page</button>
-        </span>
+                This is the index page for the <strong>Limerick Adjacent Online Network Of WebUsers</strong> or
+                <i>LimRing</i>
+            </p>
+            <p>
+                It is a web-ring for people adjacent to limerick music or art related things
+                <br><strong>This page and the limRing are still under construction!</strong>
+            </p>
+            <hr>
+            <div id="memberCounter"></div>
+            <!--List shuffes on load!-->
+            <div id='index'>
+                <script type="text/javascript" src="/limRing/onionring-variables.js"></script>
+                <script type="text/javascript" src="/limRing/onionring-index.js"></script>
+            </div>
+            <hr>
+            <span style="display:flex; justify-content: space-around;">
+                <button popovertarget="info">more info</button>
+                <button popovertarget="resources">resources</button>
+                <button onclick="randomSite()">random page</button>
+            </span>
         </container>
     </section>
 
     <div id="info" popover>
         <h2>more info:</h2>
-            <p>web-ring made using <a href="https://allium.house/garden/onionring/">onionring</a>
-                <br>maintained by <a href="https://hug-h.github.io/">hugh</a> <small>(<a href="https://hug-h.github.io/misc/sendMeAnEmail.html">email</a> for enquiries)</small>
+        <p>web-ring made using <a href="https://allium.house/garden/onionring/">onionring</a>
+            <br>maintained by <a href="https://hug-h.github.io/">hugh</a> <small>(<a
+                    href="https://hug-h.github.io/misc/sendMeAnEmail.html">email</a> for enquiries)</small>
 
-            </p>
-            <a href="https://en.wikipedia.org/wiki/Limerick">limerick wikipedia</a></p>
-            <br>
-            <h3>credits:</h3>
-            <p>
-                <a href="assets/SWIRLGreen.gif">swirl image</a> taken from the
-                <a href="https://limerickdioceseheritage.org/">limerick diocese heritage</a> page
-                <br>Title font: <a href="https://velvetyne.fr/fonts/avara/">Avara</a> from <a
-                    href="https://velvetyne.fr/about/">velvetyne.fr</a>
-            </p>
-            <h3>also...</h3>
-            <p>the order of this index changes every day!</p>
+        </p>
+        <a href="https://en.wikipedia.org/wiki/Limerick">limerick wikipedia</a></p>
+        <br>
+        <h3>credits:</h3>
+        <p>
+            <a href="assets/SWIRLGreen.gif">swirl image</a> taken from the
+            <a href="https://limerickdioceseheritage.org/">limerick diocese heritage</a> page
+            <br>Title font: <a href="https://velvetyne.fr/fonts/avara/">Avara</a> from <a
+                href="https://velvetyne.fr/about/">velvetyne.fr</a>
+        </p>
+        <h3>also...</h3>
+        <p>the order of this index changes every day!</p>
     </div>
     <div id="resources" popover>
         <h2>resources:</h2>
-            <p>
-                texts and articles and things that may inspire you or your website.
-                <br><small>very non comprehensive list, most of it came from:</small> <b><a href="https://niceinter.net/">niceinter.net</a></b>
-            </p>
-            <p>if you are thinking of making a website or joining this webring, read something, steal an idea!</p>
-            <h3>thinking about the web</h3>
-            <ul>
-                <li><a href="https://art.teleportacia.org/observation/vernacular">Olia Lialina. A Vernacular Web</a></li>
-                <li><a href="https://luckysoap.com/statements/handmadeweb.html">J. R. Carpenter. A Handmade Web</a></li>
-                <li><a href="https://neustadt.fr/essays/the-small-web/">Parimal Satyal. The Small Web</a></li>
-            </ul>
+        <p>
+            texts and articles and things that may inspire you or your website.
+            <br><small>very non comprehensive list, most of it came from:</small> <b><a
+                    href="https://niceinter.net/">niceinter.net</a></b>
+        </p>
+        <p>if you are thinking of making a website or joining this webring, read something, steal an idea!</p>
+        <h3>thinking about the web</h3>
+        <ul>
+            <li><a href="https://art.teleportacia.org/observation/vernacular">Olia Lialina. A Vernacular Web</a></li>
+            <li><a href="https://luckysoap.com/statements/handmadeweb.html">J. R. Carpenter. A Handmade Web</a></li>
+            <li><a href="https://neustadt.fr/essays/the-small-web/">Parimal Satyal. The Small Web</a></li>
+        </ul>
 
-            <h3>making things on the web</h3>
-            <ul>
-                <li><a href="https://stefanbohacek.com/blog/how-to-make-a-website-in-5-minutes/">How to make a website in five minutes</a></li>
-                <li><a href="https://sadgrl.online/guides/">sadgirl.online guides to making various web things</a></li>
-            </ul>  
+        <h3>making things on the web</h3>
+        <ul>
+            <li><a href="https://stefanbohacek.com/blog/how-to-make-a-website-in-5-minutes/">How to make a website in
+                    five minutes</a></li>
+            <li><a href="https://sadgrl.online/guides/">sadgirl.online guides to making various web things</a></li>
+        </ul>
     </div>
 </body>
+
 </html>

@@ -26,7 +26,11 @@ h1 {
     font-family: 'Avara_Bold';
     padding-bottom: 4vh;
     flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    height: min-content;
 }
+
 
 ul {
     list-style-type: ascii-custom;
@@ -59,14 +63,18 @@ section a {
     right: anchor(right);
     top: anchor(top);
     writing-mode: vertical-lr;
-    color:#ECF2EC;
+    color: #ECF2EC;
     animation: 3.5s infinite alternate ease-in-out wowAnim;
 }
 
 button {
     border-radius: 2px;
-    background-color:  blanchedalmond;
+    background-color: blanchedalmond;
     font-family: inherit;
+}
+
+::view-transition-group(*) {
+    animation-duration: 1s;
 }
 
 @media only screen and (max-width: 600px) {
@@ -91,7 +99,6 @@ button {
         padding-top: 0;
     }
 }
-
 
 @counter-style ascii-custom {
     system: cyclic;
