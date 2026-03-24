@@ -28,11 +28,26 @@
         }
 
         function randButton() {
-            let time = 0.2;
-            document.getElementById('coverImg').style.opacity =1;
-            randSiteTimer = setTimeout(randomSite, time*1000);
+            document.getElementById('coverImg').classList.add("transitionAnim");
+            randSiteTimer = setTimeout(randomSite, 200);
         }
     </script>
+    <style>
+        .transitionAnim{
+            animation: anim 7s;
+        }
+        @keyframes anim {
+            5% {
+                opacity: 1;
+            }
+            99%{
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body onload="animInit()">
@@ -126,7 +141,7 @@
         </div>
     </div>
 
-        <img src="assets/treaty.jpg" id="coverImg">
+    <img src="assets/treaty.jpg" id="coverImg">
 </body>
 
 </html>
