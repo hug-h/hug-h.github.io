@@ -26,12 +26,20 @@
                 })
             })
         }
+
+        function randButton() {
+            let time = 0.2;
+            document.getElementById('coverImg').style.opacity =1;
+            randSiteTimer = setTimeout(randomSite, time*1000);
+        }
     </script>
 </head>
 
 <body onload="animInit()">
     <section>
-        <h1 onclick="moveAllTitle()" ><span>Limerick</span><span>Adjacent</span><span>Online</span><span>Network</span><span>Of</span><span>WebUsers</span>
+        <h1 onclick="moveAllTitle()">
+            <span
+                id="limerick">Limerick</span><span>Adjacent</span><span>Online</span><span>Network</span><span>Of</span><span>WebUsers</span>
         </h1>
         <container>
             <p>
@@ -53,11 +61,12 @@
             <span style="display:flex; justify-content: space-around;">
                 <button popovertarget="info">more info</button>
                 <button popovertarget="resources">resources</button>
-                <button onclick="randomSite()">random page</button>
+                <button popovertarget="join">join</button>
+                <button onclick="randButton()">random page</button>
             </span>
         </container>
     </section>
-
+    <!--below all of the popovers-->
     <div id="info" popover>
         <h2>more info:</h2>
         <p>web-ring made using <a href="https://allium.house/garden/onionring/">onionring</a>
@@ -99,6 +108,25 @@
             <li><a href="https://sadgrl.online/guides/">sadgirl.online guides to making various web things</a></li>
         </ul>
     </div>
+    <div id="join" popover>
+        <h2>how 2 join the limring</h2>
+        <ol>
+            <li>confirm that u vibe with limerick</li>
+            <li>email <a href="https://hug-h.github.io/misc/sendMeAnEmail.html">hugh</a></li>
+            <li>put the below code on your page</li>
+        </ol>
+        <div class="code">
+            <code>
+            &ltdiv id='limring'&gt<br>
+            &ltlink rel="stylesheet" href="https://hug-h.github.io/limRing/onionring.css"&gt<br>
+            &ltscript type="text/javascript" src="https://hug-h.github.io/limRing/onionring-variables.js"&gt&lt/script&gt<br>
+            &ltscript type="text/javascript" src="https://hug-h.github.io/limRing/onionring-widget.js"&gt&lt/script&gt<br>
+            &lt/div&gt
+            </code>
+        </div>
+    </div>
+
+        <img src="assets/treaty.jpg" id="coverImg">
 </body>
 
 </html>

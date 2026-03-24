@@ -19,6 +19,12 @@ var sites = [
 'https://michealkeating.xyz/'
 ];
 
+/*
+soon 2 b members of the limring: 
+'https://analiagoodman.neocities.org/',
+'https://seanfreeney.neocities.org/'
+*/
+
 //the name of the ring
 var ringName = 'Limerick Adjacent Online Network Of WebUsers';
 

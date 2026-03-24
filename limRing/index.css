@@ -31,7 +31,6 @@ h1 {
     height: min-content;
 }
 
-
 ul {
     list-style-type: ascii-custom;
 }
@@ -44,7 +43,8 @@ section a {
 }
 
 #info,
-#resources {
+#resources,
+#join {
     padding: 1em;
     background-color: blanchedalmond;
     background-image: url('assets/SWIRLGreen.gif');
@@ -73,8 +73,26 @@ button {
     font-family: inherit;
 }
 
+.code {
+    padding: 1%;
+    font-size: 0.75rem;
+    background-color: gray;
+    color: blanchedalmond;
+    font-family: monospace;
+}
+
 ::view-transition-group(*) {
     animation-duration: 1s;
+}
+
+#coverImg{
+    position: fixed;
+    left: 0;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    pointer-events: none;
 }
 
 @media only screen and (max-width: 600px) {
