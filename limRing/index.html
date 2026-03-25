@@ -29,20 +29,23 @@
 
         function randButton() {
             document.getElementById('coverImg').classList.add("transitionAnim");
-            randSiteTimer = setTimeout(randomSite, 200);
+            randSiteTimer = setTimeout(randomSite, 600);
         }
     </script>
     <style>
-        .transitionAnim{
-            animation: anim 7s;
+        .transitionAnim {
+            animation: anim 2s;
         }
+
         @keyframes anim {
-            5% {
+            20% {
                 opacity: 1;
             }
-            99%{
+
+            90% {
                 opacity: 1;
             }
+
             100% {
                 opacity: 0;
             }
@@ -141,7 +144,10 @@
         </div>
     </div>
 
-    <img src="assets/treaty.jpg" id="coverImg">
+    <div id="coverImg">
+        <img src="assets/treaty.jpg">
+        <p>Limerick</p>
+    </div>
 </body>
 
 </html>

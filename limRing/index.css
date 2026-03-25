@@ -85,14 +85,36 @@ button {
     animation-duration: 1s;
 }
 
-#coverImg{
+#coverImg {
     position: fixed;
     left: 0;
-    top:0;
-    width: 100vw;
-    height: 100vh;
+    top: 0;
     opacity: 0;
     pointer-events: none;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    text-shadow: 3px 0 white, -3px 0 coral;
+
+    img {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        filter: brightness(2);
+    }
+
+    p {
+        font-size: 12rem;
+        position: relative;
+        filter: blur(3px);
+    }
 }
 
 @media only screen and (max-width: 600px) {
