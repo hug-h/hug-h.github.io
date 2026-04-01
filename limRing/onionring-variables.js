@@ -16,7 +16,9 @@ var sites = [
 'https://johnnymcmahon.neocities.org/',
 'https://arwenduggan.neocities.org/',
 'https://mobys.neocities.org/',
-'https://michealkeating.xyz/'
+'https://michealkeating.xyz/',
+'https://analiagoodman.neocities.org/',
+'https://seanfreeney.neocities.org/'
 ];
 
 /*
