@@ -1,0 +1,375 @@
+<head>
+    <title>n0tes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body,
+        img {
+            width: 400px;
+            margin: 0;
+        }
+
+        body {
+            font-family: serif;
+            margin-left: 1vw;
+        }
+
+        .date {
+            text-align: end;
+        }
+
+        img {
+            height: auto;
+        }
+
+        img,
+        p {
+            margin-top: 1vh;
+        }
+
+        article {
+            max-height: 97vh;
+            column-width: 400px;
+            column-gap: 5vw;
+            margin-top: 2em;
+            margin-bottom: 2em;
+            scroll-margin-top: 2em;
+
+            /*scroll-snap-align: start;*/
+            hr {
+                margin-top: -2em;
+                /*ensures the first column sits higher than the following ones*/
+            }
+        }
+
+        #index {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 15vw;
+            max-height: 80vh;
+            overflow-y: scroll;
+            scrollbar-width: none;
+            z-index: -10;
+            border-width: 1px;
+            border-spacing: 0.5em;
+            color: black;
+
+            td,
+            tr {
+                vertical-align: top;
+                text-align: end;
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                }
+            }
+
+        }
+    </style>
+    <script> //add id's
+        let articles;
+        function scripts() {
+            articles = [...document.getElementsByTagName("article")];
+            addIds();
+            index();
+        }
+
+        function index() {
+            index = document.getElementById("index");
+            articles.forEach((article) => {
+                h3 = article.getElementsByTagName("h3")[0];
+                link = document.createElement("a");
+                link.innerHTML = h3.innerHTML;
+                link.href = "#" + article.id;
+                tr = document.createElement("tr");
+                t = document.createElement("td");
+                t.appendChild(link)
+                tr.appendChild(t);
+                index.appendChild(tr);
+            })
+        }
+
+        function addIds() {
+            articles.forEach((article) => {
+                title = article.getElementsByTagName("h3")[0];
+                //title = title.innerHTML.replace(/\./g, "");
+                article.id = "a_" + title.innerHTML;
+            })
+        }
+    </script>
+</head>
+
+<body onload="scripts()">
+    <table id="index">
+    </table>
+    <main>
+        <!--
+
+    -->
+        <article>
+
+            <hr>
+            <h3>Dying Breath</h3>
+            <div class="date">POEM</div>
+            <br><br><br>
+            <p>
+                I'm on the brink of sincerity<br>
+                but all i can say is myself<br>
+                <br>
+                I was brought up in brambles, in blackthorns<br>
+                I'm skinny to the point of singing<br>
+                big fuckin' man hands on me<br>
+                climbing cliffs, carrying coal<br>
+                back-handing bushes, I've got ecsema<br>
+                for fuck sake<br>
+                <br>
+                now these bold hands are wiping arse<br>
+                and a fart shot out of me like a dying breath<br>
+            </p>
+
+        </article>
+
+        <article>
+            <hr>
+            <h3>Reason</h3>
+            <div class="date">POEM</div>
+            <br><br><br>
+
+            <p>
+                I seen a face in the shadow of rubbed suede <br>
+
+                Throne to a smelly hole <br>
+
+                Bed to the drunk <br>
+
+                In a TV-lit slumber <br>
+
+                It is peaceful, <br>
+
+                Theres no lying in the light <br>
+
+                No opinions <br>
+
+                No held-by-accident breaths <br>
+
+                Its reason after the words <br>
+
+                Are burned in turf fire <br>
+
+                Or dissolved in bins juice <br>
+
+                Its reason when the flies harmonise <br>
+
+                With wings and no voice <br><br>
+
+
+
+                Ah what a lifeful buzzing! <br>
+            </p>
+
+        </article>
+
+        <article>
+            <hr>
+            <h3>01.02.26</h3>
+            <div class="date">POEM</div>
+            <br><br><br>
+
+            <p>
+                Stressed out cross-maker at dawn of spring <br>
+
+                Mine so ugly sun hides after glimpse <br>
+
+                But yesterday was the day <br>
+
+                I hadn't done it <br>
+
+                Today the day I done it <br>
+
+                Today the day I done it<br><br>
+            </p>
+
+        </article>
+
+        <article>
+            <hr>
+            <h3>Homes</h3>
+            <div class="date">POEM</div>
+            <br><br><br>
+            <p>
+                Slug-born, sweet between, the great confusion <br>
+
+                And now; the fun slog <br>
+
+                With wet trail only in mind <br>
+
+                I am banging incessantly at a zebra crossing <br>
+
+                greengreengreengreen, <br>
+
+                Then green. <br><br>
+
+
+
+                Tiring times these <br>
+
+                The constant shuffle <br>
+
+                Ever-rising tides <br>
+
+                Homes are sinking boats <br>
+
+                The dragging, in fear of drowning <br>
+
+                Inhale, deep breath in through the nose <br><br>
+
+                Cant smell nothing <br>
+            </p>
+
+        </article>
+
+        <article>
+            <hr>
+            <h3>Like Flies</h3>
+            <div class="date">POEM</div>
+            <br><br><br>
+            <p>
+                They've put poison in the Shannon <br>
+
+                And a fish floats to the top <br>
+
+                And faces start to drop <br>
+
+                Like flies <br>
+
+                And the ones left alive <br>
+
+                Sing to the white streetlights <br><br>
+
+
+
+                I see the moon, the moon sees me, <br>
+
+                God loves the moon, God loves me<br>
+            </p>
+
+        </article>
+
+        <article>
+            <hr>
+            <h3>A Money Dog</h3>
+            <div class="date">POEM</div>
+            <br><br><br>
+            <p>
+                Did you see that? <br>
+
+                It came fast through the crowd <br>
+
+                On the back of a fine dog;<br>
+
+                A money dog <br>
+
+                Like a shiny car <br>
+
+                Holding its collar and kicking <br>
+
+                Most people parted for it, <br>
+
+                As they were expected <br>
+
+                We stand here stubborn, <br>
+
+                As it hurtles toward our pockets <br><br>
+
+
+
+                In our eyes shines the nametag <br>
+
+                â€œCHILDâ€ is engraved sloppily <br>
+
+                The pendant jumps and flails <br>
+
+                And our eyes are fixed upon it <br><br>
+
+
+
+                False child on your way to us <br>
+
+                Run under my legs at least <br>
+
+                Leave us standing <br>
+
+                Let us win <br>
+            </p>
+
+        </article>
+
+        <article>
+            <hr>
+            <h3>Seagulls</h3>
+            <div class="date">POEM</div>
+            <br><br><br>
+            <p>
+                Seagulls are wandering about field-ponds<br>
+
+                Aimlessly piercing the marsh <br>
+
+                I wonder how their feet feel, <br>
+
+                The warm-wet soil, <br>
+
+                Is it similar to the sand? <br>
+
+                They all take off together, <br>
+
+                Only to fly a measly yard <br>
+
+                Back picking in a starved inland <br>
+
+                Beak-to-beak with the mirror on the ground <br>
+
+                They are scavengers, stripped of song <br>
+
+                Ignorant, <br>
+
+                And aimlessly piercing the marsh<br>
+            </p>
+
+        </article>
+
+        <article>
+            <hr>
+            <h3>Limerick ONE</h3>
+            <div class="date">POEM</div>
+            <br><br><br>
+            <p>
+                A collective of boys hanged a swan in my river <br>
+
+                A collective of boys stand by the swan <br>
+
+                They hung in my river <br><br>
+
+
+
+                A hoard of insects jumping sideways <br>
+
+                Pales in comparison to the rubber giant <br>
+
+                Pales in comparison to the metal giant <br><br>
+
+
+
+                A pigeon quivers crossing concrete <br>
+
+                It knows all too well the stories <br><br>
+
+
+
+                Two greyhounds rest at the end of their run <br>
+
+                Necks intertwined, they breathe. <br>
+            </p>
+
+        </article>
+    </main>
+</body>
