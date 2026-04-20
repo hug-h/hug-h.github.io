@@ -23,8 +23,8 @@ var sites = [
 
 /*
 soon 2 b members of the limring: 
-'https://analiagoodman.neocities.org/',
-'https://seanfreeney.neocities.org/'
+    oliwia
+    caimin
 */
 
 //the name of the ring

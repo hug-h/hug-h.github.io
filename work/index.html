@@ -54,26 +54,19 @@
 
 <body onload="showProjects()">
     <header style="max-width: 1700px;">
-        <section>
-            <p style="flex: 1;">Hugh Clery Ward <span id="animatedText"></span></p>
-            <div class="rhHeader">
-                <p>Music Media & Performance Technology Student</p>
-            </div>
-        </section>
-        <section>
-            <div style="flex: 1;">
-                <table class="selector">
-                    <tr>
-                        <td id="bio"> <a href="../index.html">Bio</a> </td>
-                        <td class="animSeparator"> // </td>
-                        <td id="wrk" class="bold"><a href="index.html">Work</a></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="rhHeader">
-                <p style="text-align: right;">Limerick, Ireland</p>
-            </div>
-        </section>
+        <h1 style="flex: 1;">Hugh Clery Ward <span id="animatedText"></span></h1>
+        <div class="rhHeader">
+            <p></p>
+        </div>
+        <div>
+            <table class="selector">
+                <tr>
+                    <td id="bio" onmouseenter="loadGl()"> <a href="/index.html">Bio</a> </td>
+                    <td class="animSeparator"> // </td>
+                    <td id="wrk" class="bold"><a href="/work/index.html">Projects</a></td>
+                </tr>
+            </table>
+        </div>
     </header>
 
 
@@ -136,15 +129,15 @@
         
         <section class="project" onclick="loadPage(3)">
             <div class="c1">
-                <p>Music On Tap March24</p>
+                <p>Performance</p>
                 <div class="th2">
-                    <p>MaxMSP Performance</p>
-                    <p>/2024</p>
+                    <p>drums & Max MSP</p>
                 </div>
             </div>
             <div class="c2">
-                <p>Improvised performance focusing on non western tonalities, generative
-                    algorithms, and noise feedback systems created in MaxMSP's <i>gen~</i> environment</p>
+                <p>
+                    video archive of selected performances solo & with others
+                </p>
             </div>
             <div class="c3">
                 <img class="tableImg" loading="lazy" src="../images/musicOnTap.gif">

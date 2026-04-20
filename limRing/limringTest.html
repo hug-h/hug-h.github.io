@@ -1,0 +1,46 @@
+<html>
+<!--for testing the onionring stuff locally-->
+<head>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+
+            * {
+                max-width: 40vw;
+            }
+        }
+
+        #limring table{
+            cursor: pointer;
+            anchor-name: --limringAnchor;
+        }
+
+        #limring .tooltip {
+            width: 130px;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            
+            position: fixed;
+            position-anchor: --limringAnchor;
+            z-index: 1;
+        }
+        
+        #limring:hover .tooltip{
+            visibility: visible;
+            background-color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id='limring'>
+        <link rel="stylesheet" href="onionring.css">
+        <script type="text/javascript" src="onionring-variables.js"></script>
+        <script type="text/javascript" src="onionring-widget.js"></script>
+    </div>
+</body>
+
+</html>

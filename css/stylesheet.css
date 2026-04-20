@@ -28,7 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 99vh;
-    justify-content: space-between;
+    justify-content:space-between;
 }
 
 main {
@@ -102,8 +102,7 @@ section {
     flex-wrap: wrap;
 }
 
-header>section {
-    height: auto;
+header> *{
     padding-bottom: .5vh;
 }
 
@@ -216,7 +215,7 @@ header>section {
 .tableImg {
     /*table image sizing // not actually used in a table but it looks like one*/
     min-width: 160px;
-    max-width: 320px;
+    max-width: 300px;
     width: 100%;
     height: auto;
     margin-right: 5vw;
