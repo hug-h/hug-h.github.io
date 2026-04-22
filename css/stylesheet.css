@@ -250,7 +250,7 @@ header> *{
 .ytVid {
     display: flex;
     flex-direction: column;
-
+    display: none; /*videos not displayed till after page loaded to take advantage of lazy loading and let the glitch effect run first*/
 
     p {
         justify-self: end;
