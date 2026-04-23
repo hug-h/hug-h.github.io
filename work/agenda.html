@@ -9,11 +9,30 @@
     <script src="../animations.js"></script>
     <link rel="shortcut icon" href="../images/favicon.png" />
     <style>
-        #mainContent{table{
-            td{
-                padding-right:20px;
+        #mainContent {
+            table {
+                td {
+                    padding-right: 20px;
+                }
             }
-        }}
+        }
+
+        .yearHeading{
+            background-color: grey;
+            color: black;
+            display: inline-block;
+            height: .5em;
+            filter: blur(.251px);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media only screen and (max-width: 1080px) {
+            .text {
+                width: 100% !important; 
+            }
+        }
+
     </style>
 </head>
 
@@ -41,7 +60,7 @@
                 <h1>agenda</h1>
                 <table>
                     <tr>
-                        <td>2026</td>
+                        <td class="yearHeading">2026</td>
                     </tr>
                     <tr>
                         <td>18.04.26</td>
@@ -98,7 +117,7 @@
                         <td><a href="https://youtu.be/ZysjGQQJQVo">youtube</a></td>
                     </tr>
                     <tr>
-                        <td>2025</td>
+                        <td class="yearHeading">2025</td>
                     </tr>
                     <tr>
                         <td>29.11.25</td>
@@ -203,7 +222,7 @@
                         <td>Pharmacia, Limerick</td>
                     </tr>
                     <tr>
-                        <td>2024</td>
+                        <td class="yearHeading">2024</td>
                     </tr>
                     <tr>
                         <td>24.10.24</td>
@@ -222,7 +241,7 @@
                         <td><a href="https://youtu.be/4QboyjxhIT4">youtube</a></td>
                     </tr>
                     <tr>
-                        <td>2023</td>
+                        <td class="yearHeading">2023</td>
                     </tr>
                     <tr>
                         <td>02.12.23</td>
@@ -233,7 +252,7 @@
                         <td>12.04.23</td>
                         <td>Cascando</td>
                         <td>Dolans, Limerick</td>
-                    </tr>                    
+                    </tr>
                     <tr>
                         <td>11.04.23</td>
                         <td>Solo</td>
