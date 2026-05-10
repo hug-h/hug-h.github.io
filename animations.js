@@ -136,28 +136,3 @@ function pageName(){
 function popImg(image){
     document.getElementById("img"+image).togglePopover();
 }
-
-
-
-
-
-
-//--------------------------------------------------
-// navigation
-
-
-const pages = ["chair","buchla","performance","web"];
-
-function loadPage(page){
-    console.log(page);
-    if(page!="R"){
-        window.location.href= pages[page]+".html";
-    }else{
-        current = pageName();
-        randNum = Math.floor(Math.random()*pages.length); 
-        while(pages[randNum]==current){ // make sure the new page is not the current page
-            randNum = Math.floor(Math.random()*pages.length); 
-        }
-        window.location.href= pages[randNum]+".html";
-    }
-}

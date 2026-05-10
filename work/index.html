@@ -13,6 +13,7 @@
         let pLength = 0;
 
         function showProjects() {
+            addLinks();
             reOrder();
             pLength = [...document.getElementsByClassName("project")].length;
             reveal();
@@ -21,10 +22,9 @@
         function reveal() {
             if (projectCounter == 0) {
                 revealInterval = setInterval(reveal, 50); // set the rate here
-            } else if (projectCounter >= pLength-1) {
+            } else if (projectCounter >= pLength - 1) {
                 clearInterval(revealInterval);
             }
-            console.log(projectCounter); 
             projectShow(projectCounter);
             projectCounter += 1;
 
@@ -47,7 +47,14 @@
             }))
         }
 
-        //probably will add a fill function here eventually or maybe soon?
+        function addLinks() {
+            links = [...document.getElementsByClassName("projectLink")];
+            links.forEach((link) => {
+                link.parentElement.addEventListener("click", function () {
+                    window.location = link.href;
+                })
+            })
+        }
     </script>
     <link rel="shortcut icon" href="../images/favicon.png" />
 </head>
@@ -71,7 +78,8 @@
 
 
     <div id="workDiv">
-        <section class="project" onclick="loadPage(0)">
+        <section class="project">
+            <a href="chair.html" class="projectLink"></a>
             <div class="c1">
                 <p>Monplaisir:<br> <i>Rd2DOOM</i></p>
                 <div class="th2">
@@ -87,8 +95,8 @@
             </div>
 
         </section>
-        
-        <!--section class="project" onclick="loadPage(1)">
+
+        <!--section class="project">
             <div class="c1">
                 <p>Slop Machine</p>
                 <div class="th2">
@@ -104,8 +112,9 @@
                 <img class="tableImg" loading="lazy" src="../images/slop.gif">
             </div>
         </section-->
-        
-        <section class="project" onclick="loadPage(2)">
+
+        <section class="project">
+            <a href="buchla.html" class="projectLink"></a>
             <div class="c1">
                 <p>Textual Buchla:<br> <i>Re-Interfacing the 250e</i></p>
                 <div class="th2">
@@ -126,8 +135,9 @@
                 <img class="tableImg" loading="lazy" src="../images/250gen.gif">
             </div>
         </section>
-        
-        <section class="project" onclick="loadPage(3)">
+
+        <section class="project">
+            <a href="performance.html" class="projectLink"></a>
             <div class="c1">
                 <p>Performance</p>
                 <div class="th2">
@@ -145,7 +155,8 @@
             </div>
         </section>
 
-        <section class="project" onclick="loadPage(4)">
+        <section class="project">
+            <a href="web.html" class="projectLink"></a>
             <div class="c1">
                 <p>Misc Web</p>
                 <div class="th2">
