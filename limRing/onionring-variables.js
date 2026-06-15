@@ -9,7 +9,7 @@
 var sites = [
 'https://hug-h.github.io/',
 'https://lmfao061.com/',
-'https://trecol.neocities.org/',
+'https://ferrertyr.neocities.org/',
 'https://paddydelany.com/5/',
 'https://doireann.neocities.org/',
 'https://sioda.ie/',
@@ -23,6 +23,7 @@ var sites = [
 
 /*
 soon 2 b members of the limring: 
+    https://martiansubculture.neocities.org/
     oliwia
     caimin
 */
