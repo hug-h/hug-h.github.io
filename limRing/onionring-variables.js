@@ -18,12 +18,12 @@ var sites = [
 'https://mobys.neocities.org/',
 'https://michealkeating.xyz/',
 'https://analiagoodman.neocities.org/',
-'https://seanfreeney.neocities.org/'
+'https://seanfreeney.neocities.org/',
+'https://martiansubculture.neocities.org/'
 ];
 
 /*
 soon 2 b members of the limring: 
-    https://martiansubculture.neocities.org/
     oliwia
     caimin
 */
