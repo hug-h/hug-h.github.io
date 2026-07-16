@@ -14,12 +14,12 @@ function animateText() {
     if ((Math.random() * 20) < 1 || tag.childElementCount > 18) {
         tag.innerHTML = ""
     }
-    lm.style.filter = "blur("+tag.childElementCount/18+"px)";
+    lm.style.filter = "blur(" + tag.childElementCount / 18 + "px)";
 }
 
 function animateSeparator() {
     tags = [...document.getElementsByClassName("animSeparator")];
-    tags.forEach((tag)=>{
+    tags.forEach((tag) => {
         stuff = document.createElement("span");
         stuff.innerHTML = "";
         for (i = 0; i < 2; i++) {
@@ -60,40 +60,40 @@ function loadGl() { // loops x times and then stops
 
 function moveStuff(changeOrder) {
     let elements = document.getElementById("mainContent").children;
-    let eArray = [... elements ]; // new syntax to me but it is basically array.from()    
+    let eArray = [...elements]; // new syntax to me but it is basically array.from()    
     if (changeOrder) { // change the order of the elements on the homepage
-        for(i=0;i<(elements.length/2);i++){
+        for (i = 0; i < (elements.length / 2); i++) {
             num = -1 * Math.floor(Math.random() * elements.length);
-            target =  2*i
+            target = 2 * i
             eArray[target].style.order = num;
         }
     }
     eArray.forEach((id) => { // change the paddingTop of an element
         var int = Math.floor(Math.random() * 24);
-        id.style.paddingTop = 1+int + "vh";
+        id.style.paddingTop = 1 + int + "vh";
     })
 }
 
-function showVideo(){
+function showVideo() {
     elements = document.getElementsByClassName("ytVid"); //shows the video elements when called, used for faster loads
     elements = [...elements];
-    if(elements){
-        elements.forEach(function show(elem){
+    if (elements) {
+        elements.forEach(function show(elem) {
             elem.style.display = "block"
         })
     }
 }
 
-function showFooter(){
+function showFooter() {
     maxOffset = 68;
-    if(window.innerWidth<600){maxOffset=28;} //less footer offset on narrow screens
+    if (window.innerWidth < 600) { maxOffset = 28; } //less footer offset on narrow screens
 
     elements = document.getElementsByTagName("footer"); //shows the footer element when called, elements should only ever be one element but need to be an array 
     elements = [...elements];
-    if(elements){
-        elements.forEach(function show(elem){
+    if (elements) {
+        elements.forEach(function show(elem) {
             elem.classList.add("show");
-            elem.children[0].style.paddingLeft = Math.floor(Math.random() * maxOffset)+"vw";
+            elem.children[0].style.paddingLeft = Math.floor(Math.random() * maxOffset) + "vw";
         })
     }
 }
@@ -107,24 +107,24 @@ function showFooter(){
 //function to add the name of a project onto the page
 
 
-function extension(){
+function extension() {
     var page = pageName();
     dest = document.getElementById("wrk").parentElement;
-    loc =document.createElement("td");
+    loc = document.createElement("td");
     loc.classList.add("label");
     loc.classList.add("bold");
-    loc.innerHTML="- - > "+page;
-    dest.appendChild(loc);   
+    loc.innerHTML = "- - > " + page;
+    dest.appendChild(loc);
 
 }
 
 
 // get the name of the current page
-function pageName(){
+function pageName() {
     var path = window.location.pathname;
     var page = path.split("/").pop()
     let rg = new RegExp(/\..+/gm);
-    var page = page.replace(rg,"");
+    var page = page.replace(rg, "");
     return page;
 }
 
@@ -132,7 +132,6 @@ function pageName(){
 
 //-------------------------------------------------
 //display popover image
-
-function popImg(image){
-    document.getElementById("img"+image).togglePopover();
+function popImg(image) {
+    document.getElementById("img" + image).togglePopover();
 }
