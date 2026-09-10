@@ -8,6 +8,7 @@
 #limring {
   padding-right: 5px; /* creates some space around the widget */
   padding-bottom: 5px;
+  font-size: 1rem;
   margin: 0 auto;
   color: inherit;
   a{
