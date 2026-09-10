@@ -19,7 +19,8 @@ var sites = [
 'https://michealkeating.xyz/',
 'https://analiagoodman.neocities.org/',
 'https://seanfreeney.neocities.org/',
-'https://martiansubculture.neocities.org/'
+'https://martiansubculture.neocities.org/',
+'https://less-air.github.io/orkid/'
 ];
 
 /*

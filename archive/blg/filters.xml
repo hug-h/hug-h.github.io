@@ -14,3 +14,19 @@ result="goo"></feColorMatrix>
 </filter>
 </defs>
 </svg>
+
+
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"> //from lomz.net
+    <filter id="dither" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="1" seed="3" stitchTiles="stitch" result="rawNoise"/>
+      <feColorMatrix in="rawNoise" type="matrix" values=".33 .33 .33 0 0  .33 .33 .33 0 0  .33 .33 .33 0 0  0 0 0 0 1" result="noise"/>
+      <feColorMatrix in="SourceGraphic" type="matrix" values=".33 .33 .33 0 0  .33 .33 .33 0 0  .33 .33 .33 0 0  0 0 0 1 0" result="gray"/>
+      <feComposite in="gray" in2="noise" operator="arithmetic" k1="0" k2="1" k3="1" k4="-.5"/>
+      <feComponentTransfer>
+        <feFuncR type="discrete" tableValues="0 1"/>
+        <feFuncG type="discrete" tableValues="0 1"/>
+        <feFuncB type="discrete" tableValues="0 1"/>
+      </feComponentTransfer>
+    </filter>
+  </svg>
