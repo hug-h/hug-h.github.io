@@ -109,22 +109,42 @@ function showFooter() {
 
 function extension() {
     var page = pageName();
+    console.log(page);
+    var suffix 
     dest = document.getElementById("wrk").parentElement;
     loc = document.createElement("td");
     loc.classList.add("label");
+    page.forEach((e,index) => {
+        s = document.createElement("span")
+        s.innerHTML = e;
+        if(index+1==page.length){
+            s.classList.add("bold");
+        }else if(index!=0){
+            s.innerHTML+=" --> "
+        }else if(index==0){
+            s.innerHTML=" --> "
+        }
+        loc.appendChild(s);
+        suffix=" --> ";
+    })
+    
+    /*loc = document.createElement("td");
+    loc.classList.add("label");
     loc.classList.add("bold");
-    loc.innerHTML = "- - > " + page;
+    loc.innerHTML = page.replace(/\//gm," --> ")
+    */
     dest.appendChild(loc);
-
 }
 
 
 // get the name of the current page
 function pageName() {
     var path = window.location.pathname;
-    var page = path.split("/").pop()
-    let rg = new RegExp(/\..+/gm);
-    var page = page.replace(rg, "");
+    var page = path.split("work").pop();
+    //if (page.includes("index.html")) { return page.split("/index")[0]; }
+    let rg = new RegExp(/[\.].+/gm);
+    page = page.replace(rg, "");
+    page = page.split("/");
     return page;
 }
 

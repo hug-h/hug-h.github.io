@@ -12,7 +12,6 @@ var sites = [
 'https://ferrertyr.neocities.org/',
 'https://paddydelany.com/5/',
 'https://doireann.neocities.org/',
-'https://sioda.ie/',
 'https://johnnymcmahon.neocities.org/',
 'https://arwenduggan.neocities.org/',
 'https://mobys.neocities.org/',
@@ -20,7 +19,8 @@ var sites = [
 'https://analiagoodman.neocities.org/',
 'https://seanfreeney.neocities.org/',
 'https://martiansubculture.neocities.org/',
-'https://less-air.github.io/orkid/'
+'https://less-air.github.io/orkid/',
+'https://hazelgardner.neocities.org/'
 ];
 
 /*

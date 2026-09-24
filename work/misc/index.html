@@ -1,0 +1,92 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>hguh</title>
+    <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+    <script src="/animations.js"></script>
+    <link rel="shortcut icon" href="/images/favicon.png" />
+    <style>
+        #mainContent {
+            table {
+                td {
+                    padding-right: 20px;
+                }
+            }
+        }
+
+        .yearHeading {
+            background-color: grey;
+            color: black;
+            display: inline-block;
+            height: .5em;
+            filter: blur(.251px);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media only screen and (max-width: 1080px) {
+            .text {
+                width: 100% !important;
+            }
+        }
+    </style>
+</head>
+
+<body onload="load(); extension()">
+    <header style="max-width: 1700px;">
+        <h1 style="flex: 1;">Hugh Clery Ward <span id="animatedText"></span></h1>
+        <div class="rhHeader">
+            <p></p>
+        </div>
+        <div>
+            <table class="selector">
+                <tr>
+                    <td id="bio" onmouseenter="loadGl()"> <a href="/index.html">Bio</a> </td>
+                    <td class="animSeparator"> // </td>
+                    <td id="wrk"><a href="/work/index.html">Projects</a></td>
+                </tr>
+            </table>
+        </div>
+    </header>
+
+    <main>
+        <br><br>
+        <section style="justify-content: center;" id="mainContent">
+            <div style="width: 60% ; margin-right: 5%;" class="text">
+                <h1>miscellaneous</h1>
+                <table>
+                    <tr>
+                        <td class="yearHeading">2024</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><a href="chair.html">monplaisir rd2doom</a></td>
+                        <td>music video</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><a href="slopMachine.html">slop Machine</a></td>
+                        <td>Installation</td>
+                    </tr>
+
+                </table>
+            </div>
+            <div style="margin-right: 10%;margin-left: 0%;" class="img">
+                <img src="/images/heaven.png">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <table class="selector">
+            <tr>
+                <td><a href="../index.html">Back</a></td>
+                <td class="animSeparator"> // </td>
+                <td id="wrk" onclick="loadPage('R')"><a>More</a></td>
+                <script type="text/javascript" src="../randPage.js"></script>
+            </tr>
+        </table>
+    </footer>
+</body>

@@ -1,4 +1,4 @@
-const pages = ["chair","web","buchla","performance"]
+const pages = ["web.html","buchla.html","performance.html","misc"]
 function loadPage(p) {
     if (p == "R") {
         randNum = Math.floor(Math.random() * pages.length);
@@ -8,6 +8,6 @@ function loadPage(p) {
         while (pages[randNum] == current) { // make sure the new page is not the current page
             randNum = Math.floor(Math.random() * pages.length);
         }
-        window.location.href = pages[randNum] + ".html";
+        window.location.href = pages[randNum];
     }
 }
