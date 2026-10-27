@@ -1,0 +1,48 @@
+<head>
+    <title>textbox</title>
+    <script>
+        boxes = [];
+        addEventListener("click", (event) => {
+            x = event.pageX / document.body.clientWidth * 100;
+            y = event.pageY / document.body.clientHeight * 100;
+            y= Math.floor(y);
+            console.log(`x=${x}   y=${y}`);
+            i = document.createElement("textarea");
+            //i.type = "text";
+            i.style.top = `${y}vh`
+            i.style.left = `${x}vw`
+            document.body.appendChild(i);
+            //i.select();
+            boxes.push(i);
+        });
+
+        addEventListener("keydown", (event) => {
+            if (event.keyCode == 27) {
+                boxes.forEach((element, index, array) => {
+                    element.remove();
+                });
+                boxes = [];
+            }
+        })
+    </script>
+    <style>
+        textarea {
+            position: fixed;
+            resize: none;
+            border:none;
+            background: none;
+            overflow-wrap: anywhere;
+            ::-webkit-scrollbar {
+                display: none;
+            }
+
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+</head>
+
+<body>
+</body>
